@@ -1,3 +1,26 @@
-const form=document.querySelector<HTMLFormElement>('#filters');
-function filter(){if(!form)return;const data=new FormData(form);let count=0;document.querySelectorAll<HTMLElement>('[data-card]').forEach(card=>{const text=String(data.get('search')||'').trim().toLowerCase();const show=(!text||card.dataset.title?.includes(text))&&['pillar','level','difficulty','adult'].every(key=>!data.get(key)||card.dataset[key]===data.get(key))&&(!data.get('f7')||card.dataset.f7==='true');card.hidden=!show;if(show)count++});const result=document.querySelector('#result-count');if(result)result.textContent=`${count} challenge${count===1?'':'s'}`;const empty=document.querySelector<HTMLElement>('#empty');if(empty)empty.hidden=count>0}
-form?.addEventListener('input',filter);form?.addEventListener('reset',()=>setTimeout(filter,0));
+const form = document.querySelector<HTMLFormElement>("#filters");
+function filter() {
+  if (!form) return;
+  const data = new FormData(form);
+  let count = 0;
+  document.querySelectorAll<HTMLElement>("[data-card]").forEach((card) => {
+    const text = String(data.get("search") || "")
+      .trim()
+      .toLowerCase();
+    const show =
+      (!text || card.dataset.title?.includes(text)) &&
+      ["pillar", "level", "difficulty", "adult"].every(
+        (key) => !data.get(key) || card.dataset[key] === data.get(key),
+      ) &&
+      (!data.get("f7") || card.dataset.f7 === "true");
+    card.hidden = !show;
+    if (show) count++;
+  });
+  const result = document.querySelector("#result-count");
+  if (result)
+    result.textContent = `${count} challenge${count === 1 ? "" : "s"}`;
+  const empty = document.querySelector<HTMLElement>("#empty");
+  if (empty) empty.hidden = count > 0;
+}
+form?.addEventListener("input", filter);
+form?.addEventListener("reset", () => setTimeout(filter, 0));
