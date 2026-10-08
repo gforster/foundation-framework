@@ -13,4 +13,4 @@ Artifacts: home-desktop.png, home-mobile.png, challenge-print.pdf. Browser check
 
 Limitations: sample curriculum; local-device readiness only; no accounts, real approval, cross-device sync, evidence, or participant notes. Pathfinder/Vanguard curriculum is not yet authored.
 
-GitHub publication is pending repository visibility confirmation. Automatic approval review rejected public creation because visibility was not specified; no remote repository was created.
+The user approved public visibility. Repository: https://github.com/gforster/foundation-framework. GitHub Pages is enabled with Actions deployment at https://gforster.github.io/foundation-framework/.

@@ -1,5 +1,7 @@
 # Foundation Framework · v0.1
 
+[Live website](https://gforster.github.io/foundation-framework/) · [GitHub repository](https://github.com/gforster/foundation-framework)
+
 A church-centered field guide for biblical formation, practical competence, and faithful service. **All challenge curriculum is prototype/sample content**, not an approved curriculum. Review with church leaders before use.
 
 ## Develop
