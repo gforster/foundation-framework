@@ -1,0 +1,12 @@
+---
+import '../styles/global.css'; import Icon from '../components/Icon.astro';
+interface Props {title:string; description?:string}
+const {title,description='Biblical formation. Practical competence. Faithful service.'}=Astro.props;
+const base=import.meta.env.BASE_URL;
+const links=[['Challenges','challenges'],['Foundation 7','foundation-7'],['How It Works','how-it-works'],['Resources','resources'],['For the Church','for-the-church']];
+---
+<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width"/><meta name="description" content={description}/><title>{title} | Foundation Framework</title><link rel="icon" href={`${base}favicon.svg`}/></head><body>
+<a class="skip" href="#main">Skip to content</a><header><div class="header-inner"><a class="brand" href={base}><Icon name="apprentice" size={35}/><span>FOUNDATION<small>FRAMEWORK</small></span></a><button id="menu-toggle" aria-expanded="false" aria-controls="navigation">Menu</button><nav id="navigation" aria-label="Main">{links.map(([label,path])=><a href={`${base}${path}/`} aria-current={Astro.url.pathname.includes(`/${path}/`)?'page':undefined}>{label}</a>)}</nav></div></header>
+<main id="main"><slot/></main><footer><div><strong>FOUNDATION FRAMEWORK</strong><p>Biblical formation. Practical competence. Faithful service.</p></div><div><a href={`${base}pillars/`}>Four pillars</a><a href={`${base}levels/`}>Three levels</a><span>v0.1 · Sample curriculum</span></div></footer>
+<script>import '../scripts/progress'; const b=document.querySelector<HTMLButtonElement>('#menu-toggle');b?.addEventListener('click',()=>{const open=b.getAttribute('aria-expanded')!=='true';b.setAttribute('aria-expanded',String(open));document.querySelector('#navigation')?.classList.toggle('open',open)});</script>
+</body></html>

@@ -1,0 +1,12 @@
+---
+import Icon from './Icon.astro';
+import type {CollectionEntry} from 'astro:content';
+interface Props {entry:CollectionEntry<'challenges'>}
+const {entry}=Astro.props; const d=entry.data; const base=import.meta.env.BASE_URL;
+---
+<article class="challenge-card" data-card data-title={`${d.title} ${d.description}`.toLowerCase()} data-pillar={d.pillar} data-level={d.level} data-difficulty={d.difficulty} data-f7={String(d.foundation7)} data-adult={d.adult}>
+<div class="card-top"><span class="eyebrow"><Icon name={d.pillar.toLowerCase()} size={18}/>{d.pillar}</span>{d.foundation7 && <span class="f7"><Icon name="foundation7" size={16}/>Foundation 7</span>}</div>
+<h3><a href={`${base}challenges/${entry.id}/`}>{d.title}</a></h3><p>{d.description}</p>
+<div class="meta"><span>{'●'.repeat(d.difficulty)} {['Easy','Moderate','Challenging'][d.difficulty-1]}</span><span>{d.effort}</span></div>
+<div class="card-bottom"><span>{d.level} · Required</span><span data-status-id={entry.id}>Not started</span></div>
+</article>
