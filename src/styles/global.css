@@ -1413,3 +1413,88 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
+.brand-showcase,
+.brand-customizer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+.brand-sheet {
+  background: #f3f1e9;
+  border: 1px solid #c6c8bd;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 220px;
+}
+.brand-sheet img,
+.brand-sheet svg {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+}
+.brand-sheet.artwork-dark {
+  background: #242622;
+}
+.printable-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+.printable-preview {
+  display: block;
+  width: 100%;
+  max-height: 330px;
+  object-fit: contain;
+  background: #e7e7dd;
+  margin-bottom: 1rem;
+}
+.printable-grid .resource-card {
+  gap: 0.8rem;
+}
+.printable-grid .button {
+  margin-top: auto;
+}
+.brand-customizer {
+  padding: 1.5rem;
+  background: var(--soft);
+  border-top: 5px solid var(--signal);
+}
+.brand-customizer label {
+  display: block;
+  margin: 1rem 0;
+}
+.apparel-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.apparel-grid .resource-card {
+  gap: 1rem;
+}
+.apparel-art {
+  min-height: 300px;
+}
+.apparel-art img {
+  max-height: 270px;
+}
+.brand-showcase .actions {
+  margin: 1rem 0;
+}
+@media (max-width: 760px) {
+  .brand-showcase,
+  .brand-customizer,
+  .printable-grid,
+  .apparel-grid {
+    grid-template-columns: 1fr;
+  }
+  .brand-sheet {
+    padding: 1rem;
+  }
+  .brand-customizer {
+    padding: 1rem;
+  }
+}

@@ -1,0 +1,220 @@
+---
+import Layout from "../layouts/Layout.astro";
+import logo from "../../public/brand/logo-ink.svg?raw";
+const base = import.meta.env.BASE_URL;
+
+const printables = [
+  [
+    "Church promotion kit",
+    "church-promotion-kit",
+    "3 pages",
+    "A church poster, bulletin / parent handout, and four cut-out invitation cards. Add your church and meeting details by hand.",
+  ],
+  [
+    "Personal notebook kit",
+    "notebook-kit",
+    "8 pages",
+    "A personal cover, four pillar dividers, challenge index, repeatable field-notes page, and cut-out labels.",
+  ],
+  [
+    "Brand & apparel guide",
+    "brand-and-apparel-guide",
+    "3 pages",
+    "Logo use, color specifications, clear space, suggested chest and back print sizes, and a printer handoff guide.",
+  ],
+];
+---
+
+<Layout title="Brand & Printables">
+  <section class="page-intro">
+    <span class="eyebrow">For your church. For your notebook.</span>
+    <h1>Make it part of your life.</h1>
+    <p>
+      Print it. Put it in your notebook. Give someone an invitation. Carry the
+      same identity into your church’s workshops and apparel.
+    </p>
+    <a
+      class="button"
+      download
+      href={`${base}downloads/foundation-framework-brand-kit.zip`}
+    >
+      Download the complete kit
+    </a>
+  </section>
+  <section class="brand-showcase">
+    <div class="brand-sheet">
+      <img
+        src={`${base}brand/logo-primary.svg`}
+        alt="Foundation Framework logo"
+      />
+    </div>
+    <div>
+      <span class="eyebrow">A foundation you build on</span>
+      <h2>A shared mark.</h2>
+      <p>
+        Two F forms stand on one solid footing. Simple enough for a notebook
+        label, sturdy enough for a one-color chest print.
+      </p>
+      <div class="actions">
+        <a download href={`${base}brand/logo-primary.svg`}>
+          Color logo
+        </a>
+        <a download href={`${base}brand/logo-ink.svg`}>
+          Black logo
+        </a>
+        <a download href={`${base}brand/logo-white.svg`}>
+          White logo
+        </a>
+        <a download href={`${base}brand/mark.svg`}>
+          Mark only
+        </a>
+      </div>
+      <p class="device-note">
+        Scalable SVG files with transparent backgrounds and outlined logo
+        lettering.
+      </p>
+    </div>
+  </section>
+  <section>
+    <div class="section-heading">
+      <h2>Ready to print.</h2>
+      <span>US Letter · Print at actual size</span>
+    </div>
+    <div class="printable-grid">
+      {printables.map(([title, slug, pages, text]) => (
+        <article class="resource-card">
+          <a href={`${base}downloads/${slug}.pdf`}>
+            <img
+              class="printable-preview"
+              src={`${base}downloads/${slug}-preview.png`}
+              alt={`${title} first-page preview`}
+              loading="lazy"
+            />
+          </a>
+          <span class="eyebrow">PDF · {pages}</span>
+          <h3>{title}</h3>
+          <p>{text}</p>
+          <a
+            class="button secondary"
+            download
+            href={`${base}downloads/${slug}.pdf`}
+          >
+            Download PDF
+          </a>
+        </article>
+      ))}
+    </div>
+    <p class="device-note">
+      The labels are free-cut designs for paper or adhesive stock. Challenge
+      sheets and the personal progress record are available from{" "}
+      <a href={`${base}my-workshop/`}>My Workshop</a>.
+    </p>
+  </section>
+  <section id="church-artwork" class="brand-customizer">
+    <div>
+      <span class="eyebrow">Keep the identity. Make it local.</span>
+      <h2>Add your church name.</h2>
+      <p>
+        Create a church lockup for invitations, notebook covers, or an apparel
+        printer.
+      </p>
+      <label>
+        Church name
+        <input
+          id="church-name"
+          maxlength="60"
+          placeholder="Your church name"
+          autocomplete="organization"
+        />
+      </label>
+      <label>
+        Artwork color
+        <select id="artwork-color">
+          <option value="ink">Black ink · for light backgrounds</option>
+          <option value="white">White ink · for dark backgrounds</option>
+        </select>
+      </label>
+      <button id="download-church-logo">Download church SVG</button>
+      <p id="artwork-status" role="status" aria-live="polite"></p>
+      <p class="device-note">
+        Your church name stays in this page; it is not sent or saved. Ask your
+        printer to outline the church-name text before production.
+      </p>
+    </div>
+    <div>
+      <div
+        id="church-preview"
+        class="brand-sheet"
+        aria-label="Customized church logo preview"
+      ></div>
+      <p class="device-note">
+        Artwork preview · transparent background in the downloaded file
+      </p>
+    </div>
+  </section>
+  <template id="base-logo" set:html={logo} />
+  <section>
+    <div class="section-heading">
+      <h2>Wear the framework.</h2>
+      <span>One-color vector artwork</span>
+    </div>
+    <div class="apparel-grid">
+      <article class="resource-card">
+        <div class="apparel-art brand-sheet">
+          <img
+            src={`${base}brand/apparel-chest-ink.svg`}
+            alt="Foundation Framework chest-print artwork"
+          />
+        </div>
+        <h3>Chest lockup</h3>
+        <p>
+          A compact identity for shirts and hoodies. Start around 3.5 inches
+          wide and have your printer confirm placement.
+        </p>
+        <a
+          class="button secondary"
+          download
+          href={`${base}brand/apparel-chest-ink.svg`}
+        >
+          Download chest artwork
+        </a>
+      </article>
+      <article class="resource-card">
+        <div class="apparel-art brand-sheet">
+          <img
+            src={`${base}brand/apparel-back-ink.svg`}
+            alt="Foundation Framework back artwork: Learn, Practice, Serve, Teach"
+          />
+        </div>
+        <h3>Back print</h3>
+        <p>
+          A larger statement of purpose. Start around 10 inches wide; use a
+          local printer to proof the actual garment.
+        </p>
+        <a
+          class="button secondary"
+          download
+          href={`${base}brand/apparel-back-ink.svg`}
+        >
+          Download back artwork
+        </a>
+      </article>
+    </div>
+    <p>
+      No store or ordering service is connected yet. Download the artwork and
+      take it to your preferred local printer. For a church-named chest print,
+      use the customizer above.
+    </p>
+  </section>
+  <section class="local-note">
+    <p>
+      Churches and participants may reproduce these original materials for
+      Foundation Framework activities and local apparel. This starter identity
+      has not undergone trademark clearance. The curriculum remains sample
+      content for church review.
+    </p>
+  </section>
+  <script>
+    import "../scripts/brand";
+  </script>
+</Layout>

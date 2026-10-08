@@ -1,7 +1,7 @@
 ---
 import "../styles/global.css";
 import { getCollection } from "astro:content";
-import Icon from "../components/Icon.astro";
+
 interface Props {
   title: string;
   description?: string;
@@ -54,7 +54,13 @@ const links = [
     <header>
       <div class="header-inner">
         <a class="brand" href={base}>
-          <Icon name="apprentice" size={35} />
+          <img
+            class="icon"
+            src={`${base}brand/mark.svg`}
+            width="35"
+            height="35"
+            alt=""
+          />
           <span>
             FOUNDATION<small>FRAMEWORK</small>
           </span>
@@ -97,6 +103,7 @@ const links = [
         <p>Biblical formation. Practical competence. Faithful service.</p>
       </div>
       <div>
+        <a href={`${base}downloads/`}>Brand & printables</a>
         <a href={`${base}pillars/`}>Four pillars</a>
         <a href={`${base}levels/`}>Three levels</a>
         <span>v0.1 · Sample curriculum</span>
