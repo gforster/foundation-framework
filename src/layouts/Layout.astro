@@ -15,6 +15,7 @@ const challengeIds = (await getCollection("challenges"))
   .filter((c) => c.data.level === "Apprentice")
   .map((c) => c.id);
 const links = [
+  ["My Workshop", "my-workshop"],
   ["Challenges", "challenges"],
   ["Foundation 7", "foundation-7"],
   ["How It Works", "how-it-works"],

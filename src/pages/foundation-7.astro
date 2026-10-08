@@ -1,4 +1,5 @@
 ---
+import ProgressData from "../components/ProgressData.astro";
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 import Icon from "../components/Icon.astro";
@@ -9,6 +10,7 @@ const entries = (await getCollection("challenges"))
 ---
 
 <Layout title="Foundation 7">
+  <ProgressData />
   <section class="page-intro">
     <span class="eyebrow">
       <Icon name="foundation7" />
@@ -27,6 +29,19 @@ const entries = (await getCollection("challenges"))
       Explore the full catalog
     </a>
   </section>
+  <section class="progress-panel">
+    <div>
+      <span class="eyebrow">Based on this device’s progress</span>
+      <h2>Your suggested next step</h2>
+      <div data-guided-next></div>
+    </div>
+    <a
+      class="button secondary"
+      href={`${import.meta.env.BASE_URL}my-workshop/`}
+    >
+      Open My Workshop
+    </a>
+  </section>
   <section>
     <h2>A suggested sequence</h2>
     <p>Move at your own pace and arrange help from your church as needed.</p>
@@ -39,4 +54,7 @@ const entries = (await getCollection("challenges"))
       ))}
     </div>
   </section>
+  <script>
+    import "../scripts/workshop";
+  </script>
 </Layout>

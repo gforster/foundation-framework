@@ -1,0 +1,20 @@
+---
+import { getCollection } from "astro:content";
+const entries = (await getCollection("challenges"))
+  .filter((c) => c.data.level === "Apprentice")
+  .sort(
+    (a, b) =>
+      (a.data.sequence ?? 99) - (b.data.sequence ?? 99) ||
+      a.data.title.localeCompare(b.data.title),
+  );
+const data = entries.map((c) => ({
+  id: c.id,
+  title: c.data.title,
+  pillar: c.data.pillar,
+  checks: c.data.checklist,
+  foundation7: c.data.foundation7,
+  url: `${import.meta.env.BASE_URL}challenges/${c.id}/`,
+}));
+---
+
+<div hidden data-workshop-data={JSON.stringify(data)}></div>

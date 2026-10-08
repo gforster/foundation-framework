@@ -1062,6 +1062,90 @@ footer {
     padding-left: 0.75rem;
   }
 }
+/* Working views */
+.workshop-overview {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 1.5rem;
+  background: var(--soft);
+  border-top: 5px solid var(--signal);
+}
+.workshop-overview progress {
+  width: 100%;
+  accent-color: var(--signal);
+}
+.coverage {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.coverage strong,
+.coverage span {
+  display: block;
+}
+.coverage span,
+.device-note {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.workshop-continue {
+  display: block;
+  margin-top: auto;
+  font-weight: 700;
+}
+.next-action {
+  padding: 1.2rem;
+  background: var(--soft);
+  border-left: 5px solid var(--signal);
+  margin: 1.5rem 0;
+}
+.sheet-jumps {
+  display: flex;
+  margin: 1rem 0;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.sheet-content h3 {
+  font-size: 1.15rem;
+  margin-top: 1.5rem;
+}
+.adult-guide {
+  background: var(--soft);
+  padding: 1.5rem;
+}
+[id] {
+  scroll-margin-top: 1rem;
+}
+.completion-record table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+}
+.completion-record th,
+.completion-record td {
+  text-align: left;
+  border: 1px solid var(--line);
+  padding: 0.7rem;
+}
+.completion-record caption {
+  text-align: left;
+  font-weight: 700;
+}
+@media (max-width: 760px) {
+  .workshop-overview {
+    grid-template-columns: 1fr;
+  }
+  .sheet-jumps {
+    display: flex;
+  }
+  .completion-record th,
+  .completion-record td {
+    font-size: 0.8rem;
+    padding: 0.4rem;
+    overflow-wrap: anywhere;
+  }
+}
 @media print {
   @page {
     margin: 16mm;
@@ -1173,4 +1257,43 @@ footer {
     orphans: 3;
     widows: 3;
   }
+}
+
+@media print {
+  .sheet-jumps,
+  .next-action {
+    display: none !important;
+  }
+  .launch-kit section {
+    margin: 1rem 0;
+    break-inside: avoid;
+  }
+  .completion-record .page-intro {
+    margin: 0 0 1rem;
+    padding: 0;
+  }
+  .completion-record h1,
+  .launch-kit h1 {
+    font-size: 24pt;
+  }
+  .completion-record button,
+  .launch-kit button,
+  .completion-record .page-intro > a {
+    display: none;
+  }
+  .completion-record th,
+  .completion-record td {
+    font-size: 9pt;
+    padding: 0.35rem;
+  }
+  .adult-guide {
+    break-inside: auto !important;
+  }
+  .adult-guide > div {
+    break-inside: avoid;
+  }
+}
+
+.completion-record p {
+  overflow-wrap: anywhere;
 }

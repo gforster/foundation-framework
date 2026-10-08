@@ -1,0 +1,51 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ProgressData from "../components/ProgressData.astro";
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title="Printable Progress Record">
+  <ProgressData />
+  <article class="completion-record">
+    <section class="page-intro">
+      <span class="eyebrow">Apprentice · Conversation record</span>
+      <h1>My progress record</h1>
+      <p>
+        Checklist progress and readiness from this browser. Adult approval is
+        recorded separately by your church.
+      </p>
+      <button data-print>Print progress record</button>
+      <a href={`${base}my-workshop/`}>Back to My Workshop</a>
+    </section>
+    <p>
+      Participant: ____________________ Church: ____________________ Date:
+      __________
+    </p>
+    <div data-completion-record></div>
+    <p>
+      Adult’s observations:
+      _______________________________________________________
+    </p>
+    <p>
+      Next step agreed:
+      ___________________________________________________________
+    </p>
+    <p>
+      Observer: ____________________ Signature: ____________________ Date:
+      __________
+    </p>
+    <p class="device-note">
+      This local record does not certify completion or verify an observer’s
+      identity.
+    </p>
+  </article>
+  <noscript>
+    <p>Enable JavaScript to show this browser’s progress record.</p>
+  </noscript>
+  <script>
+    import "../scripts/workshop";
+    document
+      .querySelector("[data-print]")
+      ?.addEventListener("click", () => window.print());
+  </script>
+</Layout>

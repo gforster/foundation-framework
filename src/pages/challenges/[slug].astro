@@ -42,13 +42,58 @@ const base = import.meta.env.BASE_URL;
       </div>
       <button data-print>Print challenge sheet</button>
     </div>
+    <section class="next-action">
+      <span class="eyebrow">Your next action</span>
+      <p data-next-action>{d.checklist[0]}</p>
+      <a href={`${base}my-workshop/`}>Back to My Workshop</a>
+    </section>
+    <nav class="sheet-jumps" aria-label="Challenge sections">
+      <a href="#prepare">Prepare</a>
+      <a href="#learn">Learn</a>
+      <a href="#practice">Practice</a>
+      <a href="#demonstrate">Demonstrate</a>
+      <a href="#adult-guide">Adult guide</a>
+    </nav>
     <div class="sheet-grid">
       <div class="sheet-content">
-        <section>
+        <section id="prepare">
+          <span class="eyebrow">01 · Prepare</span>
+          <h2>Get ready</h2>
+          <h3>What you’ll need</h3>
+          <ul>
+            {d.materials.map((m) => (
+              <li>{m}</li>
+            ))}
+          </ul>
+          <h3>Arrange your help</h3>
+          <p>
+            <strong>{d.adult}</strong> · {d.adultNotes}
+          </p>
+          <p>
+            {d.prerequisites.length
+              ? d.prerequisites.join(", ")
+              : "No prior challenge required."}
+          </p>
+        </section>
+        <section id="learn">
+          <span class="eyebrow">02 · Learn</span>
           <h2>Why this matters</h2>
           <p>{d.purpose}</p>
+          <ul>
+            {d.learning.map((l) => (
+              <li>{l}</li>
+            ))}
+          </ul>
+          <blockquote>
+            “{d.scripture.text}”
+            <cite>
+              {d.scripture.reference} · KJV
+              {d.scripture.text.endsWith(";") ? " · excerpt" : ""}
+            </cite>
+          </blockquote>
         </section>
-        <section>
+        <section id="practice">
+          <span class="eyebrow">03 · Practice</span>
           <h2>Requirements</h2>
           <ol>
             {d.requirements.map((r) => (
@@ -64,7 +109,7 @@ const base = import.meta.env.BASE_URL;
           <div class="checklist">
             {d.checklist.map((r, i) => (
               <label>
-                <input type="checkbox" data-check={i} />
+                <input id={`step-${i}`} type="checkbox" data-check={i} />
                 <span>{r}</span>
               </label>
             ))}
@@ -73,7 +118,8 @@ const base = import.meta.env.BASE_URL;
             Participant: ____________________ Date: ______________
           </p>
         </section>
-        <section>
+        <section id="demonstrate">
+          <span class="eyebrow">04 · Demonstrate</span>
           <h2>
             <Icon name="demonstration" />
             Final demonstration
@@ -90,15 +136,35 @@ const base = import.meta.env.BASE_URL;
             Observer: ____________________ Signature: ______________
           </p>
         </section>
-        <section>
-          <h2>Scripture</h2>
-          <blockquote>
-            “{d.scripture.text}”
-            <cite>
-              {d.scripture.reference} · KJV
-              {d.scripture.text.endsWith(";") ? " · excerpt" : ""}
-            </cite>
-          </blockquote>
+        <section class="adult-guide" id="adult-guide">
+          <span class="eyebrow">
+            For the adult helping · Sample guidance
+          </span>
+          <h2>Adult guide</h2>
+          <p>
+            Use this alongside the participant instructions. Your church
+            determines who may sign off.
+          </p>
+          {[
+            ["Before you meet", d.adultGuide.prepare],
+            ["What to observe", d.adultGuide.observe],
+            ["Questions to discuss", d.adultGuide.questions],
+            ["Readiness criteria", d.adultGuide.criteria],
+          ].map(([title, items]) => (
+            <div>
+              <h3>{title}</h3>
+              <ul>
+                {(items as string[]).map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+          <p>
+            Agree on one way the participant could serve someone with this
+            skill. When appropriate, invite them to explain or model a step for
+            someone else under guidance.
+          </p>
         </section>
       </div>
       <aside class="sheet-sidebar">

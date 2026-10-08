@@ -81,6 +81,7 @@ function refresh() {
   document
     .querySelectorAll<HTMLProgressElement>("[data-overall]")
     .forEach((el) => (el.value = ready));
+  window.dispatchEvent(new Event("foundation-progress-change"));
 }
 refresh();
 const sheet = document.querySelector<HTMLElement>("[data-challenge]");
@@ -111,6 +112,12 @@ if (sheet) {
     const summary = sheet!.querySelector("[data-check-summary]");
     if (summary)
       summary.textContent = `${checked.length} of ${checks.length} checklist items completed`;
+    const nextAction = sheet!.querySelector("[data-next-action]");
+    const next = checks.find((c) => !c.checked);
+    if (nextAction)
+      nextAction.textContent =
+        next?.closest("label")?.textContent?.trim() ||
+        "Your checklist is complete. Arrange your final demonstration and adult review.";
     if (save) {
       const records = progressStore.read();
       records[id] = {

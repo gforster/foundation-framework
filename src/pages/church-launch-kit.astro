@@ -1,0 +1,121 @@
+---
+import Layout from "../layouts/Layout.astro";
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title="Church Launch Kit">
+  <article class="launch-kit">
+    <section class="page-intro">
+      <span class="eyebrow">
+        For parents, mentors, and church leaders · Sample materials
+      </span>
+      <h1>Church launch kit</h1>
+      <p>
+        A simple way to try Foundation Framework with your church. Adapt these
+        prototype materials with your leaders before use.
+      </p>
+      <button data-print>Print launch kit</button>
+    </section>
+    <section>
+      <h2>A first meeting · About 45 minutes</h2>
+      <ol>
+        <li>
+          <strong>Introduce the purpose · 5 minutes.</strong> Explain the four
+          pillars and the goal of faithful responsibility, service, and teaching
+          others.
+        </li>
+        <li>
+          <strong>Explore together · 10 minutes.</strong> Open an Apprentice
+          challenge. Read its purpose, Scripture, requirements, and
+          demonstration.
+        </li>
+        <li>
+          <strong>Choose a starting point · 10 minutes.</strong> Offer
+          Foundation 7 as an optional path. Let participants choose a manageable
+          challenge from any pillar.
+        </li>
+        <li>
+          <strong>Arrange help · 10 minutes.</strong> Match the task with an
+          appropriate parent, teacher, mentor, or skilled member. Agree on
+          supervision and supplies.
+        </li>
+        <li>
+          <strong>Agree on a follow-up · 10 minutes.</strong> Set a time to
+          discuss practice and observe the demonstration. Explain how the church
+          will keep approved records.
+        </li>
+      </ol>
+    </section>
+    <section>
+      <h2>An introduction for parents</h2>
+      <p>
+        Foundation Framework helps participants grow in biblical understanding
+        and practical responsibility with adults in their local church.
+        Apprentice challenges build broad experience across Identity,
+        Stewardship, Service, and Dominion.
+      </p>
+      <p>
+        Your role is to help choose realistic tasks, arrange adult instruction,
+        encourage follow-through, and discuss what was learned. Foundation 7
+        offers a starting point, but participants may begin anywhere.
+      </p>
+      <p>
+        The website’s progress stays on one device. It records checklist work
+        and readiness, not official approval. Printed sheets can support
+        conversations and your church’s own record keeping.
+      </p>
+    </section>
+    <section>
+      <h2>A mentor’s meeting guide</h2>
+      <ol>
+        <li>
+          Read the participant’s challenge and adult guide before meeting.
+        </li>
+        <li>
+          Ask the participant to explain the purpose and the help they need.
+        </li>
+        <li>
+          Model unfamiliar steps, then give space for supervised practice.
+        </li>
+        <li>
+          Observe the final demonstration using the listed readiness criteria.
+        </li>
+        <li>
+          Give specific encouragement and one clear improvement if needed.
+        </li>
+        <li>
+          Ask how the skill can serve another person and, later, be passed on.
+        </li>
+      </ol>
+      <p>
+        Follow your church’s arrangements for parent involvement, supervision,
+        and authorized sign-off. Confirm approval in your church’s records
+        rather than treating a checked box as evidence.
+      </p>
+    </section>
+    <section>
+      <h2>Before your church begins</h2>
+      <ul>
+        <li>Review sample curriculum and select appropriate challenges.</li>
+        <li>Decide who may instruct and who may approve each kind of work.</li>
+        <li>Explain how participants can ask for help.</li>
+        <li>
+          Choose a simple paper or existing church record for approved
+          completion.
+        </li>
+        <li>
+          Arrange a follow-up conversation rather than relying on automated
+          reminders.
+        </li>
+      </ul>
+      <a href={`${base}completion-record/`}>
+        Open a printable participant progress record
+      </a>
+    </section>
+  </article>
+  <script>
+    document
+      .querySelector("[data-print]")
+      ?.addEventListener("click", () => window.print());
+  </script>
+</Layout>

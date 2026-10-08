@@ -1,0 +1,74 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ProgressData from "../components/ProgressData.astro";
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title="My Workshop">
+  <ProgressData />
+  <section class="page-intro">
+    <span class="eyebrow">Apprentice · Your working record</span>
+    <h1>My Workshop</h1>
+    <p>
+      Pick up where you left off. Arrange help, practice, and bring your work to
+      someone who can give useful feedback.
+    </p>
+    <p class="device-note">
+      This record stays in this browser. Ready for sign-off means ready for an
+      adult review, not approved completion.
+    </p>
+  </section>
+
+  <section>
+    <div class="section-heading">
+      <h2>On your workbench</h2>
+      <a href={`${base}challenges/`}>Choose another challenge</a>
+    </div>
+    <div data-workbench class="cards"></div>
+    <div data-workbench-empty class="next-action">
+      <span class="eyebrow">Optional Foundation 7 suggestion</span>
+      <p>No challenges underway yet. Here’s a clear place to begin.</p>
+      <div data-guided-next></div>
+      <a href={`${base}foundation-7/`}>See the seven</a>
+    </div>
+  </section>
+  <section class="workshop-overview">
+    <div>
+      <h2>Your foundation</h2>
+      <p data-progress-summary></p>
+      <progress
+        data-overall
+        max="16"
+        value="0"
+        aria-label="Challenges ready for sign-off"
+      ></progress>
+    </div>
+    <div data-pillar-coverage class="coverage"></div>
+  </section>
+  <section>
+    <h2>Ready for a conversation</h2>
+    <p>
+      Ask an appropriate adult to observe your demonstration, discuss your
+      learning, and give feedback.
+    </p>
+    <div data-review-list class="cards"></div>
+    <p data-review-empty>No challenges ready for review yet.</p>
+  </section>
+
+  <section class="local-note">
+    <a class="button secondary" href={`${base}completion-record/`}>
+      Print your progress record
+    </a>
+    <button data-reset-progress>Reset prototype progress</button>
+    <p data-storage-message role="status"></p>
+  </section>
+  <noscript>
+    <p>
+      Local progress requires JavaScript. You can still{" "}
+      <a href={`${base}challenges/`}>read and print every challenge</a>.
+    </p>
+  </noscript>
+  <script>
+    import "../scripts/workshop";
+  </script>
+</Layout>
