@@ -55,7 +55,7 @@ const labels = {
   "in-progress": "In progress",
   ready: "Ready for sign-off",
 };
-function refresh() {
+export function refreshProgress() {
   const records = progressStore.read();
   const active = challengeIds
     .map((id) => records[id])
@@ -83,7 +83,7 @@ function refresh() {
     .forEach((el) => (el.value = ready));
   window.dispatchEvent(new Event("foundation-progress-change"));
 }
-refresh();
+refreshProgress();
 const sheet = document.querySelector<HTMLElement>("[data-challenge]");
 if (sheet) {
   const id = sheet.dataset.challenge!;
@@ -107,6 +107,7 @@ if (sheet) {
       'option[value="ready"]',
     )!;
     ready.disabled = checked.length !== checks.length;
+    if (save && checked.length === checks.length) select.value = "ready";
     if (select.value === "ready" && ready.disabled)
       select.value = "in-progress";
     const summary = sheet!.querySelector("[data-check-summary]");
@@ -130,7 +131,7 @@ if (sheet) {
         msg.textContent = ok
           ? "Saved on this device."
           : "Browser storage is unavailable. Changes cannot be saved.";
-      refresh();
+      refreshProgress();
     }
   }
   checks.forEach((c) =>
@@ -150,7 +151,7 @@ document
       window.confirm("Reset all Foundation Framework progress on this device?")
     ) {
       const ok = progressStore.reset();
-      refresh();
+      refreshProgress();
       const msg = document.querySelector("[data-storage-message]");
       if (msg)
         msg.textContent = ok
@@ -158,3 +159,5 @@ document
           : "Browser storage is unavailable.";
     }
   });
+
+window.addEventListener("storage", refreshProgress);

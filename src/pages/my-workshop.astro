@@ -19,20 +19,7 @@ const base = import.meta.env.BASE_URL;
     </p>
   </section>
 
-  <section>
-    <div class="section-heading">
-      <h2>On your workbench</h2>
-      <a href={`${base}challenges/`}>Choose another challenge</a>
-    </div>
-    <div data-workbench class="cards"></div>
-    <div data-workbench-empty class="next-action">
-      <span class="eyebrow">Optional Foundation 7 suggestion</span>
-      <p>No challenges underway yet. Here’s a clear place to begin.</p>
-      <div data-guided-next></div>
-      <a href={`${base}foundation-7/`}>See the seven</a>
-    </div>
-  </section>
-  <section class="workshop-overview">
+  <section class="workshop-overview" aria-label="Apprentice overview">
     <div>
       <h2>Your foundation</h2>
       <p data-progress-summary></p>
@@ -45,16 +32,56 @@ const base = import.meta.env.BASE_URL;
     </div>
     <div data-pillar-coverage class="coverage"></div>
   </section>
-  <section>
-    <h2>Ready for a conversation</h2>
-    <p>
-      Ask an appropriate adult to observe your demonstration, discuss your
-      learning, and give feedback.
-    </p>
-    <div data-review-list class="cards"></div>
-    <p data-review-empty>No challenges ready for review yet.</p>
+  <section class="workshop-board" aria-label="Challenge workbench">
+    <section class="board-lane">
+      <div class="lane-heading">
+        <span class="eyebrow">01 · Find a starting point</span>
+        <h2>
+          Choose next <span data-lane-count="choose"></span>
+        </h2>
+      </div>
+      <p class="lane-help">
+        A few optional Foundation 7 suggestions. Begin anywhere.
+      </p>
+      <div data-choose-next class="lane-cards"></div>
+      <p data-choose-empty hidden>
+        All seven are underway or ready. Explore the full catalog for your next
+        challenge.
+      </p>
+      <a class="lane-footer" href={`${base}challenges/`}>
+        Explore all challenges
+      </a>
+    </section>
+    <section class="board-lane">
+      <div class="lane-heading">
+        <span class="eyebrow">02 · Learn and practice</span>
+        <h2>
+          Working on <span data-lane-count="working"></span>
+        </h2>
+      </div>
+      <p class="lane-help">Pick up at your next unchecked step.</p>
+      <div data-workbench class="lane-cards"></div>
+      <p data-workbench-empty>Start a challenge to put it on your workbench.</p>
+    </section>
+    <section class="board-lane">
+      <div class="lane-heading">
+        <span class="eyebrow">03 · Show what you learned</span>
+        <h2>
+          Ready to demonstrate <span data-lane-count="ready"></span>
+        </h2>
+      </div>
+      <p class="lane-help">
+        Bring your work to an appropriate adult. Readiness is not approved
+        completion.
+      </p>
+      <div data-review-list class="lane-cards"></div>
+      <p data-review-empty>Finish a checklist to bring a challenge here.</p>
+    </section>
   </section>
-
+  <p class="board-note">
+    Cards move as you start work and complete checklists. No dragging needed.{" "}
+    <a href={`${base}foundation-7/`}>About Foundation 7</a>
+  </p>
   <section class="local-note">
     <a class="button secondary" href={`${base}completion-record/`}>
       Print your progress record

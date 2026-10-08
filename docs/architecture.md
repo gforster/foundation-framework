@@ -11,3 +11,5 @@ Future: introduce stable challenge/checklist identifiers and curriculum versions
 My Workshop derives in-progress and review-ready lists from the same collection and local progress adapter. ProgressData ships only metadata needed for those views; workshop.ts renders content using textContent. Foundation 7 chooses an underway challenge first, then the first unstarted selection; this never locks other challenges. The printable record reflects this device only.
 
 Challenge pages organize data into Prepare, Learn, Practice, and Demonstrate, with an adult guide. Added curriculum fields do not change existing checklist order or localStorage keys, preserving existing device progress. The church launch kit provides sample meeting, parent, and mentor materials as static printable HTML.
+
+The visual workbench shows at most two unstarted Foundation 7 suggestions, all active work, and all ready work. Start uses the existing progress adapter. Completing a checklist sets local readiness; unchecking an item returns it to in-progress. Per-card and per-pillar native progress elements describe checklist and breadth coverage. The full catalog remains freely available.

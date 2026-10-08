@@ -1297,3 +1297,119 @@ footer {
 .completion-record p {
   overflow-wrap: anywhere;
 }
+
+/* Visual workbench: task state, not a drag-and-drop requirement. */
+.workshop-overview {
+  margin: 1.5rem 0;
+}
+.coverage progress {
+  width: 100%;
+  height: 8px;
+  accent-color: var(--signal);
+}
+.workshop-board {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+  align-items: start;
+}
+.board-lane {
+  margin: 0;
+  padding: 1rem;
+  background: var(--soft);
+  border: 1px solid var(--line);
+  min-width: 0;
+}
+.lane-heading {
+  border-top: 4px solid var(--signal);
+  padding-top: 1rem;
+}
+.lane-heading h2 {
+  font-size: 1.6rem;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.lane-heading h2 span {
+  font:
+    700 0.85rem "Courier New",
+    monospace;
+  padding: 0.3rem 0.5rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+}
+.lane-heading .eyebrow {
+  font-size: 0.75rem;
+}
+.lane-help {
+  font-size: 0.9rem;
+  color: var(--muted);
+  min-height: 4.5rem;
+}
+.lane-cards {
+  display: grid;
+  gap: 1rem;
+}
+.board-card {
+  padding: 1rem;
+  gap: 0.65rem;
+}
+.board-card h3 {
+  font-size: 1.4rem;
+  margin: 0;
+}
+.board-card .eyebrow,
+.board-card p {
+  margin: 0;
+}
+.board-card p {
+  font-size: 0.9rem;
+}
+.board-card progress {
+  width: 100%;
+  height: 9px;
+  accent-color: var(--signal);
+}
+.board-card .button,
+.board-card button {
+  margin-top: 0.5rem;
+  text-align: center;
+  font-size: 0.85rem;
+}
+.board-card button {
+  background: var(--signal);
+  color: var(--button-ink);
+  border-color: var(--signal);
+}
+.board-card button:hover {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+.lane-footer {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 700;
+}
+.board-note {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+@media (max-width: 850px) {
+  .workshop-board {
+    grid-template-columns: 1fr;
+  }
+  .lane-help {
+    min-height: 0;
+  }
+  .lane-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 500px) {
+  .lane-cards {
+    grid-template-columns: 1fr;
+  }
+}

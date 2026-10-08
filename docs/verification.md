@@ -22,3 +22,7 @@ Both color themes checked at 360, 390, 768, 1024, and 1440 pixels on home, catal
 ## Working-view update
 
 Production build now generates 31 pages; 681 static references resolve. My Workshop workbench, next unchecked step links, pillar coverage, ready-for-review queue, reset refresh, progress-aware Foundation 7, adult guide, and 16-row printable record passed browser checks. New pages were checked in both themes at 360/390/768/1440 pixels. Progress record prints on one A4 page; expanded challenge and adult guide print across four pages. Existing catalog/search/progress and mobile navigation checks also passed. Checklist indices and storage key were preserved.
+
+## Visual workbench
+
+Verified two optional suggestions, Start moving a card into Working on and focusing Continue, checklist bars and next-step anchors, automatic readiness when the final item is checked, review-lane placement, reset, and Foundation 7 continuity. Both themes fit 360/390/768/1024/1440 pixels; phone columns stack. Build, type checks, and all 681 internal references passed. No dragging or verified approval is implemented.
