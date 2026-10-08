@@ -33,7 +33,7 @@
   "signoff": "A skilled church member should observe or discuss the final demonstration and confirm that the requirements were met. This prototype records readiness only; it does not record an authorized sign-off.",
   "resources": [
     {
-      "title": "The Holy Bible (KJV)",
+      "title": "The Holy Bible",
       "level": "Apprentice",
       "url": "https://www.kingjamesbibleonline.org/"
     },
@@ -46,7 +46,7 @@
     "reference": "1 Peter 4:10",
     "text": "As every man hath received the gift, even so minister the same one to another, as good stewards of the manifold grace of God."
   },
-  "notes": "Sample curriculum for v0.1; church leaders should review and adapt before use. Scripture excerpts are KJV. No prior challenge is required. Choose adult supervision appropriate to the participant and task.",
+  "notes": "Sample curriculum for v0.1; church leaders should review and adapt before use. No prior challenge is required. Choose adult supervision appropriate to the participant and task.",
   "sample": true,
   "materials": [
     "Your agreed recipe and ingredient list",

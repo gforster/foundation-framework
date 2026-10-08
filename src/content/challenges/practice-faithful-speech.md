@@ -32,7 +32,7 @@
   "signoff": "A mentor should observe or discuss the final demonstration and confirm that the requirements were met. This prototype records readiness only; it does not record an authorized sign-off.",
   "resources": [
     {
-      "title": "The Holy Bible (KJV)",
+      "title": "The Holy Bible",
       "level": "Apprentice",
       "url": "https://www.kingjamesbibleonline.org/"
     },
@@ -45,10 +45,10 @@
     "reference": "Ephesians 4:29",
     "text": "Let no corrupt communication proceed out of your mouth, but that which is good to the use of edifying, that it may minister grace unto the hearers."
   },
-  "notes": "Sample curriculum for v0.1; church leaders should review and adapt before use. Scripture excerpts are KJV. No prior challenge is required. Choose adult supervision appropriate to the participant and task.",
+  "notes": "Sample curriculum for v0.1; church leaders should review and adapt before use. No prior challenge is required. Choose adult supervision appropriate to the participant and task.",
   "sample": true,
   "materials": [
-    "A KJV Bible",
+    "A Bible",
     "A notebook or paper and a pen"
   ],
   "learning": [

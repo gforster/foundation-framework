@@ -33,7 +33,7 @@
   "signoff": "A mentor should observe or discuss the final demonstration and confirm that the requirements were met. This prototype records readiness only; it does not record an authorized sign-off.",
   "resources": [
     {
-      "title": "The Holy Bible (KJV)",
+      "title": "The Holy Bible",
       "level": "Apprentice",
       "url": "https://www.kingjamesbibleonline.org/"
     },
@@ -46,10 +46,10 @@
     "reference": "1 Peter 3:15",
     "text": "But sanctify the Lord God in your hearts: and be ready always to give an answer to every man that asketh you a reason of the hope that is in you with meekness and fear:"
   },
-  "notes": "Sample curriculum for v0.1; church leaders should review and adapt before use. Scripture excerpts are KJV. No prior challenge is required. Choose adult supervision appropriate to the participant and task.",
+  "notes": "Sample curriculum for v0.1; church leaders should review and adapt before use. No prior challenge is required. Choose adult supervision appropriate to the participant and task.",
   "sample": true,
   "materials": [
-    "A KJV Bible",
+    "A Bible",
     "A notebook or paper and a pen"
   ],
   "learning": [

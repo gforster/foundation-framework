@@ -33,7 +33,7 @@
   "signoff": "A parent should observe or discuss the final demonstration and confirm that the requirements were met. This prototype records readiness only; it does not record an authorized sign-off.",
   "resources": [
     {
-      "title": "The Holy Bible (KJV)",
+      "title": "The Holy Bible",
       "level": "Apprentice",
       "url": "https://www.kingjamesbibleonline.org/"
     },
@@ -46,7 +46,7 @@
     "reference": "1 Corinthians 14:40",
     "text": "Let all things be done decently and in order."
   },
-  "notes": "Sample curriculum for v0.1; church leaders should review and adapt before use. Scripture excerpts are KJV. No prior challenge is required. Choose adult supervision appropriate to the participant and task.",
+  "notes": "Sample curriculum for v0.1; church leaders should review and adapt before use. No prior challenge is required. Choose adult supervision appropriate to the participant and task.",
   "sample": true,
   "materials": [
     "Paper and a pen, or a simple spreadsheet",
