@@ -1,0 +1,53 @@
+---
+{
+  "title": "Grow something useful",
+  "pillar": "Dominion",
+  "level": "Apprentice",
+  "description": "Choose a herb, vegetable, or useful plant with a knowledgeable adult.",
+  "purpose": "Develop practical competence through careful work and wise care of creation.",
+  "difficulty": 2,
+  "effort": "Four to six weeks",
+  "foundation7": false,
+  "prerequisites": [],
+  "required": true,
+  "adult": "Skilled Church Member",
+  "adultNotes": "Arrange this challenge with a skilled church member. Ask for instruction, observation, and feedback appropriate to your age and experience.",
+  "skills": [
+    "Safe practical work",
+    "Communication",
+    "Receiving feedback"
+  ],
+  "requirements": [
+    "Choose a herb, vegetable, or useful plant with a knowledgeable adult.",
+    "Prepare soil, plant, and establish a care schedule.",
+    "Record growth and respond to a problem you observe."
+  ],
+  "checklist": [
+    "Choose a herb, vegetable, or useful plant with a knowledgeable adult.",
+    "Prepare soil, plant, and establish a care schedule.",
+    "Record growth and respond to a problem you observe.",
+    "Complete the final demonstration and request feedback."
+  ],
+  "demonstration": "Show the plant and explain what it needs to thrive.",
+  "signoff": "A skilled church member should observe or discuss the final demonstration and confirm that the requirements were met. This prototype records readiness only; it does not record an authorized sign-off.",
+  "resources": [
+    {
+      "title": "The Holy Bible (KJV)",
+      "level": "Apprentice",
+      "url": "https://www.kingjamesbibleonline.org/"
+    },
+    {
+      "title": "Your local church’s guidance and instruction",
+      "level": "Apprentice"
+    }
+  ],
+  "scripture": {
+    "reference": "Genesis 2:15",
+    "text": "And the LORD God took the man, and put him into the garden of Eden to dress it and to keep it."
+  },
+  "notes": "Sample curriculum for v0.1; church leaders should review and adapt before use. Scripture excerpts are KJV. No prior challenge is required. Choose adult supervision appropriate to the participant and task.",
+  "sample": true
+}
+---
+
+<!-- PROTOTYPE SAMPLE CURRICULUM: replace with church-approved content. -->
