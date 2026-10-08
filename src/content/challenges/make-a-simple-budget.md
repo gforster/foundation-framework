@@ -47,7 +47,36 @@
     "text": "The thoughts of the diligent tend only to plenteousness; but of every one that is hasty only to want."
   },
   "notes": "Sample curriculum for v0.1; church leaders should review and adapt before use. Scripture excerpts are KJV. No prior challenge is required. Choose adult supervision appropriate to the participant and task.",
-  "sample": true
+  "sample": true,
+  "materials": [
+    "A paper worksheet or spreadsheet",
+    "A real or practice list of monthly income and expenses",
+    "A calculator"
+  ],
+  "learning": [
+    "Read Proverbs 21:5 in context. Discuss how it connects with this challenge.",
+    "Ask your parent to explain or model the skill before you practice."
+  ],
+  "adultGuide": {
+    "prepare": [
+      "Read the requirements with the participant and agree on the scope: List a real or practice month of income and expenses.",
+      "Confirm appropriate supervision, supplies, and a realistic time to meet."
+    ],
+    "observe": [
+      "Explain your balanced plan and one tradeoff to a parent.",
+      "Look for understanding, care for others, and willingness to receive correction—not speed alone."
+    ],
+    "questions": [
+      "What did you learn, and where did you need help?",
+      "How does the Scripture connect to the choices you made?",
+      "Who could benefit from this skill, and how could you help them?"
+    ],
+    "criteria": [
+      "The participant has carried out the agreed requirements: Choose either a paper worksheet or a spreadsheet.",
+      "Explain your balanced plan and one tradeoff to a parent.",
+      "The participant can explain their choices and respond to feedback. If more practice is needed, agree on a specific next step."
+    ]
+  }
 }
 ---
 

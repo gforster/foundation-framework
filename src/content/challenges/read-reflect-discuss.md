@@ -47,7 +47,35 @@
     "text": "Jesus saith unto him, I am the way, the truth, and the life: no man cometh unto the Father, but by me."
   },
   "notes": "Sample curriculum for v0.1; church leaders should review and adapt before use. Scripture excerpts are KJV. No prior challenge is required. Choose adult supervision appropriate to the participant and task.",
-  "sample": true
+  "sample": true,
+  "materials": [
+    "A KJV Bible",
+    "A notebook or paper and a pen"
+  ],
+  "learning": [
+    "Read John 14:6 in context. Discuss how it connects with this challenge.",
+    "Ask your pastor / teacher to explain or model the skill before you practice."
+  ],
+  "adultGuide": {
+    "prepare": [
+      "Read the requirements with the participant and agree on the scope: Read one chapter of John each day for seven days.",
+      "Confirm appropriate supervision, supplies, and a realistic time to meet."
+    ],
+    "observe": [
+      "Share what the passage teaches about Christ.",
+      "Look for understanding, care for others, and willingness to receive correction—not speed alone."
+    ],
+    "questions": [
+      "What did you learn, and where did you need help?",
+      "How does the Scripture connect to the choices you made?",
+      "Who could benefit from this skill, and how could you help them?"
+    ],
+    "criteria": [
+      "The participant has carried out the agreed requirements: Write one observation and one question each day.",
+      "Share what the passage teaches about Christ.",
+      "The participant can explain their choices and respond to feedback. If more practice is needed, agree on a specific next step."
+    ]
+  }
 }
 ---
 

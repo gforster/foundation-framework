@@ -46,7 +46,36 @@
     "text": "And the LORD God took the man, and put him into the garden of Eden to dress it and to keep it."
   },
   "notes": "Sample curriculum for v0.1; church leaders should review and adapt before use. Scripture excerpts are KJV. No prior challenge is required. Choose adult supervision appropriate to the participant and task.",
-  "sample": true
+  "sample": true,
+  "materials": [
+    "A herb, vegetable, or useful plant chosen with your instructor",
+    "Suitable soil, a container or garden space, and water",
+    "A simple growth and care log"
+  ],
+  "learning": [
+    "Read Genesis 2:15 in context. Discuss how it connects with this challenge.",
+    "Ask your skilled church member to explain or model the skill before you practice."
+  ],
+  "adultGuide": {
+    "prepare": [
+      "Read the requirements with the participant and agree on the scope: Choose a herb, vegetable, or useful plant with a knowledgeable adult.",
+      "Confirm appropriate supervision, supplies, and a realistic time to meet."
+    ],
+    "observe": [
+      "Show the plant and explain what it needs to thrive.",
+      "Look for understanding, care for others, and willingness to receive correction—not speed alone."
+    ],
+    "questions": [
+      "What did you learn, and where did you need help?",
+      "How does the Scripture connect to the choices you made?",
+      "Who could benefit from this skill, and how could you help them?"
+    ],
+    "criteria": [
+      "The participant has carried out the agreed requirements: Prepare soil, plant, and establish a care schedule.",
+      "Show the plant and explain what it needs to thrive.",
+      "The participant can explain their choices and respond to feedback. If more practice is needed, agree on a specific next step."
+    ]
+  }
 }
 ---
 

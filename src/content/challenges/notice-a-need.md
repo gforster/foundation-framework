@@ -47,7 +47,35 @@
     "text": "Bear ye one another’s burdens, and so fulfil the law of Christ."
   },
   "notes": "Sample curriculum for v0.1; church leaders should review and adapt before use. Scripture excerpts are KJV. No prior challenge is required. Choose adult supervision appropriate to the participant and task.",
-  "sample": true
+  "sample": true,
+  "materials": [
+    "An agreed task and permission from the person responsible",
+    "Supplies appropriate to the task, agreed with your helper"
+  ],
+  "learning": [
+    "Read Galatians 6:2 in context. Discuss how it connects with this challenge.",
+    "Ask your mentor to explain or model the skill before you practice."
+  ],
+  "adultGuide": {
+    "prepare": [
+      "Read the requirements with the participant and agree on the scope: Ask a church member about a practical need you could help meet.",
+      "Confirm appropriate supervision, supplies, and a realistic time to meet."
+    ],
+    "observe": [
+      "Tell your mentor what listening changed about your approach.",
+      "Look for understanding, care for others, and willingness to receive correction—not speed alone."
+    ],
+    "questions": [
+      "What did you learn, and where did you need help?",
+      "How does the Scripture connect to the choices you made?",
+      "Who could benefit from this skill, and how could you help them?"
+    ],
+    "criteria": [
+      "The participant has carried out the agreed requirements: Agree on a safe, manageable task and carry it out.",
+      "Tell your mentor what listening changed about your approach.",
+      "The participant can explain their choices and respond to feedback. If more practice is needed, agree on a specific next step."
+    ]
+  }
 }
 ---
 

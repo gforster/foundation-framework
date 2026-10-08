@@ -26,6 +26,14 @@ const challenges = defineCollection({
     skills: z.array(z.string()),
     requirements: z.array(z.string()),
     checklist: z.array(z.string()),
+    materials: z.array(z.string()),
+    learning: z.array(z.string()),
+    adultGuide: z.object({
+      prepare: z.array(z.string()),
+      observe: z.array(z.string()),
+      questions: z.array(z.string()),
+      criteria: z.array(z.string()),
+    }),
     demonstration: z.string(),
     signoff: z.string(),
     resources: z.array(

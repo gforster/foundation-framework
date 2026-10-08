@@ -47,7 +47,36 @@
     "text": "As every man hath received the gift, even so minister the same one to another, as good stewards of the manifold grace of God."
   },
   "notes": "Sample curriculum for v0.1; church leaders should review and adapt before use. Scripture excerpts are KJV. No prior challenge is required. Choose adult supervision appropriate to the participant and task.",
-  "sample": true
+  "sample": true,
+  "materials": [
+    "Your agreed recipe and ingredient list",
+    "A kitchen and suitable cookware",
+    "Supplies for handwashing, safe food storage, and cleanup"
+  ],
+  "learning": [
+    "Read 1 Peter 4:10 in context. Discuss how it connects with this challenge.",
+    "Ask your skilled church member to explain or model the skill before you practice."
+  ],
+  "adultGuide": {
+    "prepare": [
+      "Read the requirements with the participant and agree on the scope: Plan a simple meal with a capable adult.",
+      "Confirm appropriate supervision, supplies, and a realistic time to meet."
+    ],
+    "observe": [
+      "Serve the meal and explain the safety steps you used.",
+      "Look for understanding, care for others, and willingness to receive correction—not speed alone."
+    ],
+    "questions": [
+      "What did you learn, and where did you need help?",
+      "How does the Scripture connect to the choices you made?",
+      "Who could benefit from this skill, and how could you help them?"
+    ],
+    "criteria": [
+      "The participant has carried out the agreed requirements: Choose breakfast, lunch, or dinner; list ingredients and costs.",
+      "Serve the meal and explain the safety steps you used.",
+      "The participant can explain their choices and respond to feedback. If more practice is needed, agree on a specific next step."
+    ]
+  }
 }
 ---
 

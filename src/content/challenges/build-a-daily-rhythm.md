@@ -47,7 +47,35 @@
     "text": "Let all things be done decently and in order."
   },
   "notes": "Sample curriculum for v0.1; church leaders should review and adapt before use. Scripture excerpts are KJV. No prior challenge is required. Choose adult supervision appropriate to the participant and task.",
-  "sample": true
+  "sample": true,
+  "materials": [
+    "Paper and a pen, or a simple spreadsheet",
+    "The information needed for your chosen responsibility"
+  ],
+  "learning": [
+    "Read 1 Corinthians 14:40 in context. Discuss how it connects with this challenge.",
+    "Ask your parent to explain or model the skill before you practice."
+  ],
+  "adultGuide": {
+    "prepare": [
+      "Read the requirements with the participant and agree on the scope: Choose a consistent time for Scripture, prayer, and one household responsibility.",
+      "Confirm appropriate supervision, supplies, and a realistic time to meet."
+    ],
+    "observe": [
+      "Explain how you will adjust the rhythm next week.",
+      "Look for understanding, care for others, and willingness to receive correction—not speed alone."
+    ],
+    "questions": [
+      "What did you learn, and where did you need help?",
+      "How does the Scripture connect to the choices you made?",
+      "Who could benefit from this skill, and how could you help them?"
+    ],
+    "criteria": [
+      "The participant has carried out the agreed requirements: Keep your chosen rhythm for seven days.",
+      "Explain how you will adjust the rhythm next week.",
+      "The participant can explain their choices and respond to feedback. If more practice is needed, agree on a specific next step."
+    ]
+  }
 }
 ---
 
