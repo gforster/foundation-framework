@@ -1,4 +1,42 @@
 ---
-import Layout from '../layouts/Layout.astro';import Card from '../components/Card.astro';import Icon from '../components/Icon.astro';import {getCollection} from 'astro:content';const entries=(await getCollection('challenges')).filter(c=>c.data.foundation7).sort((a,b)=>(a.data.sequence??0)-(b.data.sequence??0));
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import Icon from "../components/Icon.astro";
+import { getCollection } from "astro:content";
+const entries = (await getCollection("challenges"))
+  .filter((c) => c.data.foundation7)
+  .sort((a, b) => (a.data.sequence ?? 0) - (b.data.sequence ?? 0));
 ---
-<Layout title="Foundation 7"><section class="page-intro"><span class="eyebrow"><Icon name="foundation7"/>An optional guided start</span><h1>Foundation 7</h1><p class="lead">A recommended starting path for those who want a clear place to begin.</p><p>Seven accessible Apprentice challenges introduce all four pillars. Foundation 7 is not a separate level, a prerequisite, or a gate. Begin here, change the order, or choose any challenge from the catalog.</p><a class="button secondary" href={`${import.meta.env.BASE_URL}challenges/`}>Explore the full catalog</a></section><section><h2>A suggested sequence</h2><p>Move at your own pace and arrange help from your church as needed.</p><div class="guided-list">{entries.map((entry,i)=><div class="guided-item"><span class="step">{String(i+1).padStart(2,'0')}</span><Card entry={entry}/></div>)}</div></section></Layout>
+
+<Layout title="Foundation 7">
+  <section class="page-intro">
+    <span class="eyebrow">
+      <Icon name="foundation7" />
+      An optional guided start
+    </span>
+    <h1>Foundation 7</h1>
+    <p class="lead">
+      A recommended starting path for those who want a clear place to begin.
+    </p>
+    <p>
+      Seven accessible Apprentice challenges introduce all four pillars.
+      Foundation 7 is not a separate level, a prerequisite, or a gate. Begin
+      here, change the order, or choose any challenge from the catalog.
+    </p>
+    <a class="button secondary" href={`${import.meta.env.BASE_URL}challenges/`}>
+      Explore the full catalog
+    </a>
+  </section>
+  <section>
+    <h2>A suggested sequence</h2>
+    <p>Move at your own pace and arrange help from your church as needed.</p>
+    <div class="guided-list">
+      {entries.map((entry, i) => (
+        <div class="guided-item">
+          <span class="step">{String(i + 1).padStart(2, "0")}</span>
+          <Card entry={entry} />
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>

@@ -1,4 +1,154 @@
 ---
-import Layout from '../layouts/Layout.astro';const base=import.meta.env.BASE_URL;const resources=[{title:'The Holy Bible (KJV)',type:'Book',level:'Apprentice',pillar:'Identity',text:'Scripture reading and study across the framework.',url:'https://www.kingjamesbibleonline.org/',sample:false},{title:'Printable challenge sheets',type:'Printable checklist',level:'Apprentice',pillar:'All pillars',text:'Open any challenge and choose Print challenge sheet.',url:base+'challenges/',sample:false},{title:'A weekly responsibility plan',type:'Handout',level:'Apprentice',pillar:'Stewardship',text:'Example resource: use the weekly planning challenge as a printable worksheet.',url:base+'challenges/plan-a-week-of-responsibilities/',sample:true},{title:'Learning from a skilled church member',type:'Article',level:'Apprentice',pillar:'Dominion',text:'Example guidance on arranging instruction and feedback.',url:base+'for-the-church/',sample:true},{title:'Local statement of faith',type:'Church-created',level:'Apprentice',pillar:'Identity',text:'Ask your pastor for your church’s statement of faith and discuss it together.',sample:true}];
+import Layout from "../layouts/Layout.astro";
+const base = import.meta.env.BASE_URL;
+const resources = [
+  {
+    title: "The Holy Bible (KJV)",
+    type: "Book",
+    level: "Apprentice",
+    pillar: "Identity",
+    text: "Scripture reading and study across the framework.",
+    url: "https://www.kingjamesbibleonline.org/",
+    sample: false,
+  },
+  {
+    title: "Printable challenge sheets",
+    type: "Printable checklist",
+    level: "Apprentice",
+    pillar: "All pillars",
+    text: "Open any challenge and choose Print challenge sheet.",
+    url: base + "challenges/",
+    sample: false,
+  },
+  {
+    title: "A weekly responsibility plan",
+    type: "Handout",
+    level: "Apprentice",
+    pillar: "Stewardship",
+    text: "Example resource: use the weekly planning challenge as a printable worksheet.",
+    url: base + "challenges/plan-a-week-of-responsibilities/",
+    sample: true,
+  },
+  {
+    title: "Learning from a skilled church member",
+    type: "Article",
+    level: "Apprentice",
+    pillar: "Dominion",
+    text: "Example guidance on arranging instruction and feedback.",
+    url: base + "for-the-church/",
+    sample: true,
+  },
+  {
+    title: "Local statement of faith",
+    type: "Church-created",
+    level: "Apprentice",
+    pillar: "Identity",
+    text: "Ask your pastor for your church’s statement of faith and discuss it together.",
+    sample: true,
+  },
+];
 ---
-<Layout title="Resources"><section class="page-intro"><span class="eyebrow">The reference shelf</span><h1>Resources for learning and practice.</h1><p>A small prototype library of Scripture, printable sheets, and examples of local church resources. Pathfinder and Vanguard recommendations will be added with reviewed curriculum.</p></section><section><form class="filters" id="resource-filters"><label>Type<select name="type"><option value="">All types</option>{['Book','Article','Handout','Printable checklist','Church-created'].map(v=><option>{v}</option>)}</select></label><label>Level<select name="level"><option value="">All levels</option>{['Apprentice','Pathfinder','Vanguard'].map(v=><option>{v}</option>)}</select></label><label>Pillar<select name="pillar"><option value="">All pillars</option>{['Identity','Stewardship','Service','Dominion'].map(v=><option>{v}</option>)}</select></label><button type="reset" class="secondary">Clear filters</button></form><p id="resource-count" role="status" aria-live="polite">5 resources</p><div class="cards">{resources.map(r=><article class="resource-card" data-resource data-type={r.type} data-level={r.level} data-pillar={r.pillar}><span class="eyebrow">{r.type} · {r.level}</span><h2>{r.url?<a href={r.url}>{r.title}</a>:r.title}</h2><p>{r.text}</p><small>{r.pillar}{r.sample?' · Prototype example':''}</small></article>)}</div><p id="resource-empty" hidden>No resources match these filters.</p></section><script>const form=document.querySelector<HTMLFormElement>('#resource-filters');function filter(){const data=new FormData(form!);let count=0;document.querySelectorAll<HTMLElement>('[data-resource]').forEach(el=>{const show=['type','level','pillar'].every(k=>!data.get(k)||el.dataset[k]===data.get(k)||(k==='pillar'&&el.dataset.pillar==='All pillars'));el.hidden=!show;if(show)count++});document.querySelector('#resource-count')!.textContent=`${count} resources`;document.querySelector<HTMLElement>('#resource-empty')!.hidden=count>0}form?.addEventListener('input',filter);form?.addEventListener('reset',()=>setTimeout(filter,0));</script></Layout>
+
+<Layout title="Resources">
+  <section class="page-intro">
+    <span class="eyebrow">The reference shelf</span>
+    <h1>Resources for learning and practice.</h1>
+    <p>
+      A small prototype library of Scripture, printable sheets, and examples of
+      local church resources. Pathfinder and Vanguard recommendations will be
+      added with reviewed curriculum.
+    </p>
+  </section>
+  <section>
+    <form class="filters" id="resource-filters">
+      <label>
+        Type
+        <select name="type">
+          <option value="">All types</option>
+          {[
+            "Book",
+            "Article",
+            "Handout",
+            "Printable checklist",
+            "Church-created",
+          ].map((v) => (
+            <option>{v}</option>
+          ))}
+        </select>
+      </label>
+      <label>
+        Level
+        <select name="level">
+          <option value="">All levels</option>
+          {["Apprentice", "Pathfinder", "Vanguard"].map((v) => (
+            <option>{v}</option>
+          ))}
+        </select>
+      </label>
+      <label>
+        Pillar
+        <select name="pillar">
+          <option value="">All pillars</option>
+          {["Identity", "Stewardship", "Service", "Dominion"].map((v) => (
+            <option>{v}</option>
+          ))}
+        </select>
+      </label>
+      <button type="reset" class="secondary">
+        Clear filters
+      </button>
+    </form>
+    <p id="resource-count" role="status" aria-live="polite">
+      5 resources
+    </p>
+    <div class="cards">
+      {resources.map((r) => (
+        <article
+          class="resource-card"
+          data-resource
+          data-type={r.type}
+          data-level={r.level}
+          data-pillar={r.pillar}
+        >
+          <span class="eyebrow">
+            {r.type} · {r.level}
+          </span>
+          <h2>{r.url ? <a href={r.url}>{r.title}</a> : r.title}</h2>
+          <p>{r.text}</p>
+          <small>
+            {r.pillar}
+            {r.sample ? " · Prototype example" : ""}
+          </small>
+        </article>
+      ))}
+    </div>
+    <p id="resource-empty" hidden>
+      No resources match these filters.
+    </p>
+  </section>
+  <script>
+    const form = document.querySelector<HTMLFormElement>("#resource-filters");
+    function filter() {
+      const data = new FormData(form!);
+      let count = 0;
+      document
+        .querySelectorAll<HTMLElement>("[data-resource]")
+        .forEach((el) => {
+          const show = ["type", "level", "pillar"].every(
+            (k) =>
+              !data.get(k) ||
+              el.dataset[k] === data.get(k) ||
+              (k === "pillar" && el.dataset.pillar === "All pillars"),
+          );
+          el.hidden = !show;
+          if (show) count++;
+        });
+      document.querySelector("#resource-count")!.textContent =
+        `${count} resources`;
+      document.querySelector<HTMLElement>("#resource-empty")!.hidden =
+        count > 0;
+    }
+    form?.addEventListener("input", filter);
+    form?.addEventListener("reset", () => setTimeout(filter, 0));
+  </script>
+</Layout>

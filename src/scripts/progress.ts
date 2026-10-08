@@ -46,6 +46,10 @@ export const progressStore = {
     }
   },
 };
+const challengeIds: string[] = JSON.parse(
+  document.querySelector<HTMLElement>("[data-challenge-ids]")?.dataset
+    .challengeIds || "[]",
+);
 const labels = {
   "not-started": "Not started",
   "in-progress": "In progress",
@@ -53,12 +57,14 @@ const labels = {
 };
 function refresh() {
   const records = progressStore.read();
-  const active = Object.values(records).filter(
-    (r) => r.status === "in-progress",
-  ).length;
-  const ready = Object.values(records).filter(
-    (r) => r.status === "ready",
-  ).length;
+  const active = challengeIds
+    .map((id) => records[id])
+    .filter((r): r is RecordEntry => Boolean(r))
+    .filter((r) => r.status === "in-progress").length;
+  const ready = challengeIds
+    .map((id) => records[id])
+    .filter((r): r is RecordEntry => Boolean(r))
+    .filter((r) => r.status === "ready").length;
   document
     .querySelectorAll<HTMLElement>("[data-status-id]")
     .forEach(
@@ -70,7 +76,7 @@ function refresh() {
     .querySelectorAll<HTMLElement>("[data-progress-summary]")
     .forEach(
       (el) =>
-        (el.textContent = `${ready} of 16 ready for sign-off · ${active} in progress`),
+        (el.textContent = `${ready} of ${challengeIds.length} ready for sign-off · ${active} in progress`),
     );
   document
     .querySelectorAll<HTMLProgressElement>("[data-overall]")

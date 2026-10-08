@@ -1,4 +1,100 @@
 ---
-import Layout from '../../layouts/Layout.astro';import Card from '../../components/Card.astro';import {getCollection} from 'astro:content';const entries=(await getCollection('challenges')).sort((a,b)=>a.data.title.localeCompare(b.data.title));
+import Layout from "../../layouts/Layout.astro";
+import Card from "../../components/Card.astro";
+import { getCollection } from "astro:content";
+const entries = (await getCollection("challenges")).sort((a, b) =>
+  a.data.title.localeCompare(b.data.title),
+);
 ---
-<Layout title="Challenges"><section class="page-intro"><span class="eyebrow">The Apprentice field guide</span><h1>Find your next challenge.</h1><p>Build foundational experience across all four pillars. Every Apprentice challenge is required; some offer a choice of how to practice.</p><a href={`${import.meta.env.BASE_URL}foundation-7/`}>Want a clear place to begin? Try Foundation 7.</a></section><section class="catalog"><form id="filters" class="filters" role="search"><label class="search">Search challenges<input name="search" type="search" placeholder="Try tools, Scripture, or meal"/></label>{[['pillar','Pillar',['Identity','Stewardship','Service','Dominion']],['level','Level',['Apprentice','Pathfinder','Vanguard']],['difficulty','Difficulty',['1','2','3']],['adult','Adult involvement',['Parent','Pastor / Teacher','Mentor','Skilled Church Member','None']]].map(([name,label,values])=><label>{label}<select name={name as string}><option value="">All</option>{(values as string[]).map(v=><option value={v}>{name==='difficulty'?['● Easy','●● Moderate','●●● Challenging'][Number(v)-1]:v}</option>)}</select></label>)}<label class="check-filter"><input type="checkbox" name="f7"/> Foundation 7 only</label><button type="reset" class="secondary">Clear filters</button></form><div class="results-bar"><span id="result-count" role="status" aria-live="polite">16 challenges</span><span>Apprentice · v0.1</span></div><div class="cards">{entries.map(entry=><Card entry={entry}/>)}</div><p id="empty" hidden>No challenges match these filters. Pathfinder and Vanguard are still developing. Try Apprentice or clear your filters.</p></section><section class="local-note"><p>Progress belongs to this browser and device. It is not a church completion record.</p><button data-reset-progress>Reset prototype progress</button><span data-storage-message role="status"></span></section><script>import '../../scripts/catalog';</script></Layout>
+
+<Layout title="Challenges">
+  <section class="page-intro">
+    <span class="eyebrow">The Apprentice field guide</span>
+    <h1>Find your next challenge.</h1>
+    <p>
+      Build foundational experience across all four pillars. Every Apprentice
+      challenge is required; some offer a choice of how to practice.
+    </p>
+    <a href={`${import.meta.env.BASE_URL}foundation-7/`}>
+      Want a clear place to begin? Try Foundation 7.
+    </a>
+  </section>
+  <section class="catalog">
+    <form id="filters" class="filters" role="search">
+      <label class="search">
+        Search challenges
+        <input
+          name="search"
+          type="search"
+          placeholder="Try tools, Scripture, or meal"
+        />
+      </label>
+      {[
+        [
+          "pillar",
+          "Pillar",
+          ["Identity", "Stewardship", "Service", "Dominion"],
+        ],
+        ["level", "Level", ["Apprentice", "Pathfinder", "Vanguard"]],
+        ["difficulty", "Difficulty", ["1", "2", "3"]],
+        [
+          "adult",
+          "Adult involvement",
+          [
+            "Parent",
+            "Pastor / Teacher",
+            "Mentor",
+            "Skilled Church Member",
+            "None",
+          ],
+        ],
+      ].map(([name, label, values]) => (
+        <label>
+          {label}
+          <select name={name as string}>
+            <option value="">All</option>
+            {(values as string[]).map((v) => (
+              <option value={v}>
+                {name === "difficulty"
+                  ? ["● Easy", "●● Moderate", "●●● Challenging"][Number(v) - 1]
+                  : v}
+              </option>
+            ))}
+          </select>
+        </label>
+      ))}
+      <label class="check-filter">
+        <input type="checkbox" name="f7" /> Foundation 7 only
+      </label>
+      <button type="reset" class="secondary">
+        Clear filters
+      </button>
+    </form>
+    <div class="results-bar">
+      <span id="result-count" role="status" aria-live="polite">
+        {entries.length} challenges
+      </span>
+      <span>Apprentice · v0.1</span>
+    </div>
+    <div class="cards">
+      {entries.map((entry) => (
+        <Card entry={entry} />
+      ))}
+    </div>
+    <p id="empty" hidden>
+      No challenges match these filters. Pathfinder and Vanguard are still
+      developing. Try Apprentice or clear your filters.
+    </p>
+  </section>
+  <section class="local-note">
+    <p>
+      Progress belongs to this browser and device. It is not a church completion
+      record.
+    </p>
+    <button data-reset-progress>Reset prototype progress</button>
+    <span data-storage-message role="status"></span>
+  </section>
+  <script>
+    import "../../scripts/catalog";
+  </script>
+</Layout>

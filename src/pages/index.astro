@@ -1,10 +1,150 @@
 ---
-import Layout from '../layouts/Layout.astro';import Icon from '../components/Icon.astro';import Card from '../components/Card.astro';import {getCollection} from 'astro:content';
-const base=import.meta.env.BASE_URL;const challenges=(await getCollection('challenges')).filter(c=>c.data.foundation7).sort((a,b)=>(a.data.sequence??0)-(b.data.sequence??0));
-const pillars=[['Identity','Know who you are in Christ. Build conviction, character, and biblical understanding.'],['Stewardship','Care faithfully for your time, resources, relationships, and responsibilities.'],['Service','See real needs. Offer useful help. Strengthen your church and community.'],['Dominion','Develop practical skill. Work wisely. Cultivate and care for what God has entrusted.']];
+import Layout from "../layouts/Layout.astro";
+import Icon from "../components/Icon.astro";
+import Card from "../components/Card.astro";
+import { getCollection } from "astro:content";
+const base = import.meta.env.BASE_URL;
+const allChallenges = (await getCollection("challenges")).filter(
+  (c) => c.data.level === "Apprentice",
+);
+const challenges = allChallenges
+  .filter((c) => c.data.foundation7)
+  .sort((a, b) => (a.data.sequence ?? 0) - (b.data.sequence ?? 0));
+const pillars = [
+  [
+    "Identity",
+    "Know who you are in Christ. Build conviction, character, and biblical understanding.",
+  ],
+  [
+    "Stewardship",
+    "Care faithfully for your time, resources, relationships, and responsibilities.",
+  ],
+  [
+    "Service",
+    "See real needs. Offer useful help. Strengthen your church and community.",
+  ],
+  [
+    "Dominion",
+    "Develop practical skill. Work wisely. Cultivate and care for what God has entrusted.",
+  ],
+];
 ---
-<Layout title="Home"><section class="hero"><div><span class="eyebrow">A field guide for faithful growth</span><h1>Foundation<br/>Framework</h1><p class="lead">Biblical formation. Practical competence.<br/>Faithful service.</p><div class="actions"><a class="button" href={`${base}challenges/`}>Explore challenges</a><a class="button secondary" href={`${base}foundation-7/`}>Start with Foundation 7</a></div></div><aside class="hero-note"><Icon name="apprentice" size={56}/><span class="eyebrow">Your next step</span><h2>Learn it.<br/>Live it.<br/>Pass it on.</h2><p>A church-centered path from foundational experience to mature service and teaching others.</p><a href={`${base}how-it-works/`}>Understand the framework</a></aside></section>
-<section><div class="section-heading"><div><span class="eyebrow">One foundation. Four pillars.</span><h2>Grow across the whole of life.</h2></div><a href={`${base}pillars/`}>Explore the pillars</a></div><div class="pillar-grid">{pillars.map(([name,text],i)=><a class="pillar" href={`${base}pillars/${name.toLowerCase()}/`}><span class="number">0{i+1}</span><Icon name={name.toLowerCase()} size={36}/><h3>{name}</h3><p>{text}</p></a>)}</div></section>
-<section class="progress-panel"><div><span class="eyebrow">Apprentice · Your field record</span><h2>What can you work on next?</h2><p data-progress-summary>Begin with any challenge. Your progress stays on this device.</p><progress data-overall max="16" value="0" aria-label="Challenges ready for sign-off"></progress><small>Readiness is not approved completion. Prototype progress is stored only in this browser.</small></div><a class="button" href={`${base}challenges/`}>Open the Apprentice catalog</a></section>
-<section><div class="section-heading"><div><span class="eyebrow">An optional guided start</span><h2>Begin with Foundation 7.</h2><p>Seven accessible Apprentice challenges. A recommendation, never a prerequisite.</p></div><a href={`${base}foundation-7/`}>See all seven</a></div><div class="cards">{challenges.slice(0,3).map(entry=><Card entry={entry}/>)}</div></section>
-<section class="levels-strip"><div><span class="eyebrow">01 · Available</span><h3>Apprentice</h3><p>Breadth and a firm foundation.</p></div><div><span class="eyebrow">02 · Developing</span><h3>Pathfinder</h3><p>Growing competence, choice, and depth.</p></div><div><span class="eyebrow">03 · Developing</span><h3>Vanguard</h3><p>Maturity, service, leadership, and teaching.</p></div><a href={`${base}levels/`}>Understand the levels</a></section></Layout>
+
+<Layout title="Home">
+  <section class="hero">
+    <div>
+      <span class="eyebrow">A field guide for faithful growth</span>
+      <h1>
+        Foundation
+        <br />
+        Framework
+      </h1>
+      <p class="lead">
+        Biblical formation. Practical competence.
+        <br />
+        Faithful service.
+      </p>
+      <div class="actions">
+        <a class="button" href={`${base}challenges/`}>
+          Explore challenges
+        </a>
+        <a class="button secondary" href={`${base}foundation-7/`}>
+          Start with Foundation 7
+        </a>
+      </div>
+    </div>
+    <aside class="hero-note">
+      <Icon name="apprentice" size={56} />
+      <span class="eyebrow">Your next step</span>
+      <h2>
+        Learn it.
+        <br />
+        Live it.
+        <br />
+        Pass it on.
+      </h2>
+      <p>
+        A church-centered path from foundational experience to mature service
+        and teaching others.
+      </p>
+      <a href={`${base}how-it-works/`}>Understand the framework</a>
+    </aside>
+  </section>
+  <section>
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">One foundation. Four pillars.</span>
+        <h2>Grow across the whole of life.</h2>
+      </div>
+      <a href={`${base}pillars/`}>Explore the pillars</a>
+    </div>
+    <div class="pillar-grid">
+      {pillars.map(([name, text], i) => (
+        <a class="pillar" href={`${base}pillars/${name.toLowerCase()}/`}>
+          <span class="number">0{i + 1}</span>
+          <Icon name={name.toLowerCase()} size={36} />
+          <h3>{name}</h3>
+          <p>{text}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+  <section class="progress-panel">
+    <div>
+      <span class="eyebrow">Apprentice · Your field record</span>
+      <h2>What can you work on next?</h2>
+      <p data-progress-summary>
+        Begin with any challenge. Your progress stays on this device.
+      </p>
+      <progress
+        data-overall
+        max={allChallenges.length}
+        value="0"
+        aria-label="Challenges ready for sign-off"
+      ></progress>
+      <small>
+        Readiness is not approved completion. Prototype progress is stored only
+        in this browser.
+      </small>
+    </div>
+    <a class="button" href={`${base}challenges/`}>
+      Open the Apprentice catalog
+    </a>
+  </section>
+  <section>
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">An optional guided start</span>
+        <h2>Begin with Foundation 7.</h2>
+        <p>
+          Seven accessible Apprentice challenges. A recommendation, never a
+          prerequisite.
+        </p>
+      </div>
+      <a href={`${base}foundation-7/`}>See all seven</a>
+    </div>
+    <div class="cards">
+      {challenges.slice(0, 3).map((entry) => (
+        <Card entry={entry} />
+      ))}
+    </div>
+  </section>
+  <section class="levels-strip">
+    <div>
+      <span class="eyebrow">01 · Available</span>
+      <h3>Apprentice</h3>
+      <p>Breadth and a firm foundation.</p>
+    </div>
+    <div>
+      <span class="eyebrow">02 · Developing</span>
+      <h3>Pathfinder</h3>
+      <p>Growing competence, choice, and depth.</p>
+    </div>
+    <div>
+      <span class="eyebrow">03 · Developing</span>
+      <h3>Vanguard</h3>
+      <p>Maturity, service, leadership, and teaching.</p>
+    </div>
+    <a href={`${base}levels/`}>Understand the levels</a>
+  </section>
+</Layout>

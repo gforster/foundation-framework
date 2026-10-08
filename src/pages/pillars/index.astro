@@ -1,4 +1,54 @@
 ---
-import Layout from '../../layouts/Layout.astro';import Icon from '../../components/Icon.astro';const pillars=[["Identity", "Rooted in Christ", "Biblical understanding, conviction, character, and a faithful account of who you are in Christ.", "Read Scripture, reflect honestly, discuss with trusted teachers, and practice speech that builds others up."], ["Stewardship", "Faithful with what is entrusted", "Responsibility for time, money, shared spaces, relationships, and everyday obligations.", "Make plans, follow through, review your choices, and build habits of faithful care."], ["Service", "Useful love in action", "Attention to people\u2019s actual needs and a willingness to help with humility and competence.", "Listen before acting, work alongside others, and learn to serve across generations."], ["Dominion", "Careful work. Practical competence.", "Wise cultivation, craftsmanship, and care of creation under God\u2019s authority.", "Learn safe practical skills from experienced people. Work responsibly, care for what is entrusted, and use competence for others. Dominion is exercised through faithful care, never domination of people."]];
+import Layout from "../../layouts/Layout.astro";
+import Icon from "../../components/Icon.astro";
+const pillars = [
+  [
+    "Identity",
+    "Rooted in Christ",
+    "Biblical understanding, conviction, character, and a faithful account of who you are in Christ.",
+    "Read Scripture, reflect honestly, discuss with trusted teachers, and practice speech that builds others up.",
+  ],
+  [
+    "Stewardship",
+    "Faithful with what is entrusted",
+    "Responsibility for time, money, shared spaces, relationships, and everyday obligations.",
+    "Make plans, follow through, review your choices, and build habits of faithful care.",
+  ],
+  [
+    "Service",
+    "Useful love in action",
+    "Attention to people\u2019s actual needs and a willingness to help with humility and competence.",
+    "Listen before acting, work alongside others, and learn to serve across generations.",
+  ],
+  [
+    "Dominion",
+    "Careful work. Practical competence.",
+    "Wise cultivation, craftsmanship, and care of creation under God\u2019s authority.",
+    "Learn safe practical skills from experienced people. Work responsibly, care for what is entrusted, and use competence for others. Dominion is exercised through faithful care, never domination of people.",
+  ],
+];
 ---
-<Layout title="Four Pillars"><section class="page-intro"><span class="eyebrow">A whole-life foundation</span><h1>Four pillars.</h1><p>Biblical maturity and practical responsibility belong together. Apprentice participants gain foundational experience in every pillar.</p></section><section class="pillar-grid">{pillars.map(([name,title,text])=><a class="pillar" href={`${import.meta.env.BASE_URL}pillars/${name.toLowerCase()}/`}><Icon name={name.toLowerCase()} size={40}/><h2>{name}</h2><strong>{title}</strong><p>{text}</p></a>)}</section></Layout>
+
+<Layout title="Four Pillars">
+  <section class="page-intro">
+    <span class="eyebrow">A whole-life foundation</span>
+    <h1>Four pillars.</h1>
+    <p>
+      Biblical maturity and practical responsibility belong together. Apprentice
+      participants gain foundational experience in every pillar.
+    </p>
+  </section>
+  <section class="pillar-grid">
+    {pillars.map(([name, title, text]) => (
+      <a
+        class="pillar"
+        href={`${import.meta.env.BASE_URL}pillars/${name.toLowerCase()}/`}
+      >
+        <Icon name={name.toLowerCase()} size={40} />
+        <h2>{name}</h2>
+        <strong>{title}</strong>
+        <p>{text}</p>
+      </a>
+    ))}
+  </section>
+</Layout>

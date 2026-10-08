@@ -4,7 +4,7 @@ A church-centered field guide for biblical formation, practical competence, and 
 
 ## Develop
 
-Node 22+ and npm. Run `npm ci`, `npm run dev`, `npm run check`, and `npm run build`. `npm run preview` serves the build. The default URL prefix is `/foundation-framework/`; visit that path locally. To build at a domain root: `BASE_PATH=/ npm run build`.
+Node 22.12+ and npm. Run `npm ci`, `npm run dev`, `npm run check`, and `npm run build`. Then run `npm run verify:build` to check static references and Foundation 7. `npm run preview` serves the build. The default URL prefix is `/foundation-framework/`; visit that path locally. To build at a domain root: `BASE_PATH=/ npm run build`.
 
 ## Architecture and content
 

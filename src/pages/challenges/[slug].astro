@@ -1,6 +1,167 @@
 ---
-import {getCollection} from 'astro:content';import Layout from '../../layouts/Layout.astro';import Icon from '../../components/Icon.astro';
-export async function getStaticPaths(){return (await getCollection('challenges')).map(entry=>({params:{slug:entry.id},props:{entry}}))}
-const {entry}=Astro.props;const d=entry.data;const base=import.meta.env.BASE_URL;
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import Icon from "../../components/Icon.astro";
+export async function getStaticPaths() {
+  return (await getCollection("challenges")).map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+const { entry } = Astro.props;
+const d = entry.data;
+const base = import.meta.env.BASE_URL;
 ---
-<Layout title={d.title} description={d.description}><article class="field-sheet" data-challenge={entry.id}><div class="breadcrumb"><a href={`${base}challenges/`}>Challenges</a> / {d.pillar} / Apprentice</div><div class="sheet-heading"><div><span class="eyebrow"><Icon name={d.pillar.toLowerCase()}/>{d.pillar} · Apprentice · Required</span><h1>{d.title}</h1><p class="lead">{d.description}</p><div class="meta"><span>{'●'.repeat(d.difficulty)} {['Easy','Moderate','Challenging'][d.difficulty-1]}</span><span>{d.effort}</span>{d.foundation7&&<a class="f7" href={`${base}foundation-7/`}><Icon name="foundation7" size={18}/>Foundation 7 · Optional starting path</a>}</div></div><button data-print>Print challenge sheet</button></div><div class="sheet-grid"><div class="sheet-content"><section><h2>Why this matters</h2><p>{d.purpose}</p></section><section><h2>Requirements</h2><ol>{d.requirements.map(r=><li>{r}</li>)}</ol></section><section><h2><Icon name="checklist"/>Completion checklist</h2><div class="checklist">{d.checklist.map((r,i)=><label><input type="checkbox" data-check={i}/><span>{r}</span></label>)}</div><p class="print-only">Participant: ____________________ Date: ______________</p></section><section><h2><Icon name="demonstration"/>Final demonstration</h2><p>{d.demonstration}</p></section><section><h2><Icon name="signoff"/>Sign-off</h2><p>{d.signoff}</p><p class="print-only">Observer: ____________________ Signature: ______________</p></section><section><h2>Scripture</h2><blockquote>“{d.scripture.text}”<cite>{d.scripture.reference} · KJV{d.scripture.text.endsWith(';')?' · excerpt':''}</cite></blockquote></section></div><aside class="sheet-sidebar"><section class="record"><span class="eyebrow">Local field record</span><h2>Your progress</h2><label>Status<select data-challenge-status><option value="not-started">Not started</option><option value="in-progress">In progress</option><option value="ready">Ready for sign-off</option></select></label><p data-check-summary role="status"></p><small>Complete the checklist before marking ready. Adult approval takes place in person; this is a local readiness record.</small><p data-storage-message role="status"></p></section><section><h2>Church involvement</h2><strong>{d.adult}</strong><p>{d.adultNotes}</p></section><section><h2>Skills practiced</h2><ul>{d.skills.map(s=><li>{s}</li>)}</ul></section><section><h2>Before you begin</h2><p>{d.prerequisites.length?d.prerequisites.join(', '):'No prior challenge required.'}</p></section><section><h2>Resources</h2><ul>{d.resources.map(r=><li>{r.url?<a href={r.url}>{r.title}</a>:r.title}<small>{r.level}</small></li>)}</ul></section><section><h2>Field notes</h2><p>{d.notes}</p></section></aside></div></article><script>document.querySelector('[data-print]')?.addEventListener('click',()=>window.print());</script></Layout>
+
+<Layout title={d.title} description={d.description}>
+  <article class="field-sheet" data-challenge={entry.id}>
+    <div class="breadcrumb">
+      <a href={`${base}challenges/`}>Challenges</a> / {d.pillar} / Apprentice
+    </div>
+    <div class="sheet-heading">
+      <div>
+        <span class="eyebrow">
+          <Icon name={d.pillar.toLowerCase()} />
+          {d.pillar} · Apprentice · Required
+        </span>
+        <h1>{d.title}</h1>
+        <p class="lead">{d.description}</p>
+        <div class="meta">
+          <span>
+            {"●".repeat(d.difficulty)}{" "}
+            {["Easy", "Moderate", "Challenging"][d.difficulty - 1]}
+          </span>
+          <span>{d.effort}</span>
+          {d.foundation7 && (
+            <a class="f7" href={`${base}foundation-7/`}>
+              <Icon name="foundation7" size={18} />
+              Foundation 7 · Optional starting path
+            </a>
+          )}
+        </div>
+      </div>
+      <button data-print>Print challenge sheet</button>
+    </div>
+    <div class="sheet-grid">
+      <div class="sheet-content">
+        <section>
+          <h2>Why this matters</h2>
+          <p>{d.purpose}</p>
+        </section>
+        <section>
+          <h2>Requirements</h2>
+          <ol>
+            {d.requirements.map((r) => (
+              <li>{r}</li>
+            ))}
+          </ol>
+        </section>
+        <section>
+          <h2>
+            <Icon name="checklist" />
+            Completion checklist
+          </h2>
+          <div class="checklist">
+            {d.checklist.map((r, i) => (
+              <label>
+                <input type="checkbox" data-check={i} />
+                <span>{r}</span>
+              </label>
+            ))}
+          </div>
+          <p class="print-only">
+            Participant: ____________________ Date: ______________
+          </p>
+        </section>
+        <section>
+          <h2>
+            <Icon name="demonstration" />
+            Final demonstration
+          </h2>
+          <p>{d.demonstration}</p>
+        </section>
+        <section>
+          <h2>
+            <Icon name="signoff" />
+            Sign-off
+          </h2>
+          <p>{d.signoff}</p>
+          <p class="print-only">
+            Observer: ____________________ Signature: ______________
+          </p>
+        </section>
+        <section>
+          <h2>Scripture</h2>
+          <blockquote>
+            “{d.scripture.text}”
+            <cite>
+              {d.scripture.reference} · KJV
+              {d.scripture.text.endsWith(";") ? " · excerpt" : ""}
+            </cite>
+          </blockquote>
+        </section>
+      </div>
+      <aside class="sheet-sidebar">
+        <section class="record">
+          <span class="eyebrow">Local field record</span>
+          <h2>Your progress</h2>
+          <label>
+            Status
+            <select data-challenge-status>
+              <option value="not-started">Not started</option>
+              <option value="in-progress">In progress</option>
+              <option value="ready">Ready for sign-off</option>
+            </select>
+          </label>
+          <p data-check-summary role="status"></p>
+          <small>
+            Complete the checklist before marking ready. Adult approval takes
+            place in person; this is a local readiness record.
+          </small>
+          <p data-storage-message role="status"></p>
+        </section>
+        <section>
+          <h2>Church involvement</h2>
+          <strong>{d.adult}</strong>
+          <p>{d.adultNotes}</p>
+        </section>
+        <section>
+          <h2>Skills practiced</h2>
+          <ul>
+            {d.skills.map((s) => (
+              <li>{s}</li>
+            ))}
+          </ul>
+        </section>
+        <section>
+          <h2>Before you begin</h2>
+          <p>
+            {d.prerequisites.length
+              ? d.prerequisites.join(", ")
+              : "No prior challenge required."}
+          </p>
+        </section>
+        <section>
+          <h2>Resources</h2>
+          <ul>
+            {d.resources.map((r) => (
+              <li>
+                {r.url ? <a href={r.url}>{r.title}</a> : r.title}
+                <small>{r.level}</small>
+              </li>
+            ))}
+          </ul>
+        </section>
+        <section>
+          <h2>Field notes</h2>
+          <p>{d.notes}</p>
+        </section>
+      </aside>
+    </div>
+  </article>
+  <script>
+    document
+      .querySelector("[data-print]")
+      ?.addEventListener("click", () => window.print());
+  </script>
+</Layout>
