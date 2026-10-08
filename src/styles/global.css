@@ -717,6 +717,12 @@ small {
     width: 100%;
   }
 }
+@media (max-width: 760px) {
+  .page-intro + .pillar-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Workshop: task sheets, index rails, bold ink, and tool-label typography. */
 :root {
   color-scheme: light;
