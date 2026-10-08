@@ -18,3 +18,7 @@ The user approved public visibility. Repository: https://github.com/gforster/fou
 ## Workshop update
 
 Both color themes checked at 360, 390, 768, 1024, and 1440 pixels on home, catalog, and challenge pages. Verified device preference, saved preference across reload/navigation, keyboard switching, storage-unavailable fallback, and white paper printing from dark mode. Theme storage is independent from prototype progress.
+
+## Working-view update
+
+Production build now generates 31 pages; 681 static references resolve. My Workshop workbench, next unchecked step links, pillar coverage, ready-for-review queue, reset refresh, progress-aware Foundation 7, adult guide, and 16-row printable record passed browser checks. New pages were checked in both themes at 360/390/768/1440 pixels. Progress record prints on one A4 page; expanded challenge and adult guide print across four pages. Existing catalog/search/progress and mobile navigation checks also passed. Checklist indices and storage key were preserved.

@@ -33,3 +33,7 @@ Example after authenticating: `gh repo create foundation-framework --public --so
 - [Design system](docs/design-system.md)
 
 See `docs/verification.md` for checks and limitations. No PR is required for this initial main-branch prototype.
+
+## Working features
+
+My Workshop resumes the next unchecked step, shows review-ready work, and reports pillar coverage. Challenge pages provide preparation/materials, learning, practice, demonstration, and adult guidance. Foundation 7 suggestions respond to local progress. Resources link to a printable progress record and a sample church launch kit. All added guidance remains prototype curriculum. Existing checklists and their indices are preserved.
