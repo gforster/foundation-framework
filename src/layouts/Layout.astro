@@ -31,6 +31,20 @@ const links = [
     <meta name="description" content={description} />
     <title>{title} | Foundation Framework</title>
     <link rel="icon" href={`${base}favicon.svg`} />
+    <meta name="color-scheme" content="light dark" />
+    <script is:inline>
+      // Set before paint; theme preference is separate from challenge progress.
+      let theme;
+      try {
+        theme = localStorage.getItem("foundation-framework:theme");
+      } catch {}
+      document.documentElement.dataset.theme =
+        theme === "light" || theme === "dark"
+          ? theme
+          : window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+    </script>
   </head>
   <body>
     <a class="skip" href="#main">
@@ -44,6 +58,14 @@ const links = [
             FOUNDATION<small>FRAMEWORK</small>
           </span>
         </a>
+        <div class="theme-switch" role="group" aria-label="Color theme">
+          <button data-theme-choice="light" aria-pressed="false">
+            Light
+          </button>
+          <button data-theme-choice="dark" aria-pressed="false">
+            Dark
+          </button>
+        </div>
         <button
           id="menu-toggle"
           aria-expanded="false"
@@ -81,6 +103,7 @@ const links = [
     </footer>
     <script>
       import "../scripts/progress";
+      import "../scripts/theme";
       const b = document.querySelector<HTMLButtonElement>("#menu-toggle");
       b?.addEventListener("click", () => {
         const open = b.getAttribute("aria-expanded") !== "true";

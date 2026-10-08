@@ -14,3 +14,7 @@ Artifacts: home-desktop.png, home-mobile.png, challenge-print.pdf. Browser check
 Limitations: sample curriculum; local-device readiness only; no accounts, real approval, cross-device sync, evidence, or participant notes. Pathfinder/Vanguard curriculum is not yet authored.
 
 The user approved public visibility. Repository: https://github.com/gforster/foundation-framework. GitHub Pages is enabled with Actions deployment at https://gforster.github.io/foundation-framework/.
+
+## Workshop update
+
+Both color themes checked at 360, 390, 768, 1024, and 1440 pixels on home, catalog, and challenge pages. Verified device preference, saved preference across reload/navigation, keyboard switching, storage-unavailable fallback, and white paper printing from dark mode. Theme storage is independent from prototype progress.

@@ -1,7 +1,9 @@
-# Design system
+# Workshop design system
 
-A restrained field manual: ink blue (#152d3a), paper (#faf9f5), slate text (#52636b), brass accents (#80612a), light rules, and square-edged panels. Georgia headings and system sans-serif body avoid external font dependencies. Compact headings, numbered sequences, and clear metadata prioritize useful work.
+A working handbook for teens: bold uppercase sans-serif headings, monospaced index labels, orange task-sheet rails, square controls, and compact challenge cards. No external fonts or imagery. The original icon family remains repository-owned.
 
-Icons in public/icons are original 24×24 SVGs with a consistent 1.6-unit line, rounded caps/joins, and no filled decorative badges. The family covers four pillars, three levels, Foundation 7, challenge, checklist, demonstration, sign-off, and four church roles. Icons are decorative when paired with text. Foundation 7 uses a small outlined marker subordinate to the main identity.
+Light mode uses warm paper (#f3f1e9), charcoal (#242622), and orange (#f16a2b). Dark mode uses deep charcoal (#171b18), lifted work surfaces, warm white text, and lighter orange for readable text. Theme tokens live in src/styles/global.css.
 
-Semantic headings, labeled native controls, skip link, visible focus, responsive menu, status announcements, and 44px control heights support accessible use. Hidden filtered cards leave the keyboard sequence. Desktop cards use three columns; mobile uses one. Print removes navigation and local-only controls while retaining requirements, checkboxes, resources, and signature lines.
+The header’s Light / Dark buttons expose pressed state and remember a preference in a separate localStorage key. First visit follows the device color scheme; subsequent visits apply the saved preference before paint. Storage failure does not prevent switching. Progress reset does not reset theme. Printing always uses light paper regardless of screen theme.
+
+Visible keyboard focus, native controls, responsive navigation, readable text, and decorative SVGs accompany semantic structure. Challenge requirements and sample curriculum remain unchanged by this redesign.
