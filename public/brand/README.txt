@@ -1,4 +1,5 @@
 Foundation Framework starter identity
+Faithful in the everyday. | 1 Corinthians 3:11
 Logo lettering is outlined; SVG backgrounds are transparent.
 Use ink artwork for light garments and white artwork for dark garments.
 Church and participant reproduction is permitted for Foundation Framework use.
