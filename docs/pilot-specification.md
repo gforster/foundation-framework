@@ -15,7 +15,7 @@ One person can have several roles. Access comes from both church membership and 
 ## Completion workflow
 
 1. **Choose and begin.** A teen starts any enabled challenge. A mentor can recommend a challenge; a recommendation is not a prerequisite. Starting creates an attempt pinned to the published curriculum version.
-2. **Learn and practice.** The teen saves checklist progress and brief structured practice notes. The assigned mentor helps and can see the attempt. Adults do not mark the teen’s checklist on their behalf in the first release.
+2. **Learn and practice.** The teen saves checklist progress and brief structured practice notes. The assigned mentor helps and can see the attempt. For independently signed-in teens, adults do not mark the checklist on their behalf. The platform plan proposes an explicitly attributed guardian-assisted workspace for participant profiles without email; confirm that exception before implementation.
 3. **Prepare for review.** Checking every required item shows “Ready to demonstrate,” provided no more-practice feedback remains outstanding. Unchecking an item returns the attempt to “Working on.” Readiness never awards completion.
 4. **Request review.** The teen confirms the checklist, identifies the designated reviewer, and submits a short demonstration summary. Submission records an immutable snapshot of the attempt revision. The workshop shows “Review requested.” While submitted, the checklist is read-only. The teen can withdraw a pending request to continue practicing.
 5. **Demonstrate and review.** The reviewer observes the work, uses the challenge’s criteria, and either approves it or requests more practice. A review requires a short explanation; it is visible to the teen and the assigned adults. Requesting practice returns the attempt to “Working on,” keeps existing checklist entries, and records the feedback. The teen records the additional practice and acknowledges the feedback before becoming ready to request review again. This does not imply adult approval.
@@ -54,27 +54,27 @@ All permissions below are restricted to an active church membership. “Linked�
 | Draft church-specific curriculum                 | No           | No                                | No                       | Within church, later milestone | Shared curriculum, later milestone |
 | Revoke an erroneous approval                     | No           | No                                | No                       | Church, reason required        | No routine action                  |
 
-Platform administrators maintain service configuration and the shared catalog. Any future support access to participant records must be deliberate, time-limited, and audited; it is not a default consequence of being an administrator. Role and relationship changes take effect on the next authorized request and remove access to past records too.
+Platform administrators maintain service configuration and the shared catalog. The platform plan adds scoped, audited, read-only support sessions and demo role previews. Any future support access to participant records must be deliberate, time-limited, and audited; it is not a default consequence of being an administrator. Role and relationship changes take effect on the next authorized request and remove access to past records too.
 
 ## Data model
 
-| Record                   | Main fields and relationships                                                                                         |
-| ------------------------ | --------------------------------------------------------------------------------------------------------------------- |
-| User                     | Auth identity ID, display name; authentication credentials belong to the auth service                                 |
-| Church                   | ID, name, active status                                                                                               |
-| Membership               | Church ID, user ID, active status; multiple role grants per membership                                                |
-| Participant              | ID, church ID, teen membership ID, display name; each participant belongs to one church in the pilot                  |
-| Participant relationship | Church ID, participant ID, adult membership ID, parent or mentor relationship, active status                          |
-| Reviewer grant           | Church ID, participant ID, reviewer membership ID, challenge or reviewed group scope, active status                   |
-| Challenge                | Stable ID, URL slug, source owner; a church-owned challenge cannot be exposed to another church                       |
-| Challenge version        | Challenge ID, immutable published version ID, content, stable checklist item IDs, review criteria, publication status |
-| Church curriculum        | Church ID, enabled challenge version ID, church review date and reviewing coordinator                                 |
-| Attempt                  | ID, church ID, participant ID, challenge version ID, state, revision number, timestamps                               |
-| Checklist entry          | Attempt ID, stable item ID, checked value, updated timestamp                                                          |
-| Review request           | Attempt ID, submitted revision and snapshot, reviewer ID, demonstration summary, submitted or withdrawn status        |
-| Review decision          | Request ID, reviewer membership ID, approve or more practice decision, feedback, date                                 |
-| Completion               | Attempt ID, challenge version ID, approval decision ID, approval date, current validity                               |
-| Audit event              | Church ID where applicable, actor, action, subject ID, time, reason; append-only                                      |
+| Record                   | Main fields and relationships                                                                                                       |
+| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------- |
+| User                     | Auth identity ID, display name; authentication credentials belong to the auth service                                               |
+| Church                   | ID, name, active status                                                                                                             |
+| Membership               | Church ID, user ID, active status; multiple role grants per membership                                                              |
+| Participant              | ID, church ID, optional teen membership ID for assisted profiles, display name; each participant belongs to one church in the pilot |
+| Participant relationship | Church ID, participant ID, adult membership ID, parent or mentor relationship, active status                                        |
+| Reviewer grant           | Church ID, participant ID, reviewer membership ID, challenge or reviewed group scope, active status                                 |
+| Challenge                | Stable ID, URL slug, source owner; a church-owned challenge cannot be exposed to another church                                     |
+| Challenge version        | Challenge ID, immutable published version ID, content, stable checklist item IDs, review criteria, publication status               |
+| Church curriculum        | Church ID, enabled challenge version ID, church review date and reviewing coordinator                                               |
+| Attempt                  | ID, church ID, participant ID, challenge version ID, state, revision number, timestamps                                             |
+| Checklist entry          | Attempt ID, stable item ID, checked value, updated timestamp                                                                        |
+| Review request           | Attempt ID, submitted revision and snapshot, reviewer ID, demonstration summary, submitted or withdrawn status                      |
+| Review decision          | Request ID, reviewer membership ID, approve or more practice decision, feedback, date                                               |
+| Completion               | Attempt ID, challenge version ID, approval decision ID, approval date, current validity                                             |
+| Audit event              | Church ID where applicable, actor, action, subject ID, time, reason; append-only                                                    |
 
 Store attempt states as active, submitted, approved, or archived. Derive readiness from required checklist entries and outstanding more-practice feedback. Keep recommendations outside the attempt state.
 
@@ -84,7 +84,7 @@ Published curriculum can start as repository-managed content. Import reviewed ve
 
 ## First backend milestone
 
-Keep the backend provider undecided until hosting and account needs are confirmed. The required capabilities are managed authentication, a relational database, server-enforced church and relationship permissions, transactional review decisions, and an audit trail. The public GitHub Pages site can remain static; authenticated writes require a backend. Privileged credentials never ship in browser bundles.
+The [platform plan](platform-architecture.md) now recommends Supabase and Cloudflare Workers; confirm hosting and account defaults before provisioning. The required capabilities are managed authentication, a relational database, server-enforced church and relationship permissions, transactional review decisions, and an audit trail. The public GitHub Pages site can remain static; authenticated writes require a backend. Privileged credentials never ship in browser bundles.
 
 Implement the milestone in this order:
 

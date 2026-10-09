@@ -17,3 +17,7 @@ The visual workbench shows at most two unstarted Foundation 7 suggestions, all a
 ## Pilot planning
 
 See [Church pilot specification](pilot-specification.md) for the proposed completion workflow, relationship-based permissions, versioned data model, and first backend milestone. This is a planning specification; no account or persistence service is provisioned yet.
+
+## Platform direction
+
+The [platform architecture and implementation plan](platform-architecture.md) defines four connected experiences, the proposed Astro/Supabase/Workers stack, platform owner preview and support sessions, and staged implementation. It supersedes the earlier provider-undecided planning state with a recommendation, not provisioned infrastructure.
