@@ -1498,3 +1498,7 @@ footer {
     padding: 1rem;
   }
 }
+
+.brand .brand-logo {
+  filter: none;
+}
