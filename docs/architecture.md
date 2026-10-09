@@ -13,3 +13,7 @@ My Workshop derives in-progress and review-ready lists from the same collection 
 Challenge pages organize data into Prepare, Learn, Practice, and Demonstrate, with an adult guide. Added curriculum fields do not change existing checklist order or localStorage keys, preserving existing device progress. The church launch kit provides sample meeting, parent, and mentor materials as static printable HTML.
 
 The visual workbench shows at most two unstarted Foundation 7 suggestions, all active work, and all ready work. Start uses the existing progress adapter. Completing a checklist sets local readiness; unchecking an item returns it to in-progress. Per-card and per-pillar native progress elements describe checklist and breadth coverage. The full catalog remains freely available.
+
+## Pilot planning
+
+See [Church pilot specification](pilot-specification.md) for the proposed completion workflow, relationship-based permissions, versioned data model, and first backend milestone. This is a planning specification; no account or persistence service is provisioned yet.

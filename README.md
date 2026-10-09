@@ -28,6 +28,7 @@ Example after authenticating: `gh repo create foundation-framework --public --so
 
 ## Documentation
 
+- [Church pilot specification](docs/pilot-specification.md)
 - [Architecture](docs/architecture.md)
 - [Content model](docs/content-model.md)
 - [Design system](docs/design-system.md)
