@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import AudienceCards from "../components/AudienceCards.astro";
 import Icon from "../components/Icon.astro";
 import Card from "../components/Card.astro";
 import { getCollection } from "astro:content";
@@ -40,13 +41,16 @@ const pillars = [
         Framework
       </h1>
       <p class="lead">Faithful in the everyday.</p>
-      <p>Biblical formation. Practical competence. Faithful service.</p>
+      <p>
+        Church-centered discipleship and practical life skills for teens, with
+        parents, mentors, and church members helping along the way.
+      </p>
       <div class="actions">
         <a class="button" href={`${base}challenges/`}>
           Explore challenges
         </a>
-        <a class="button secondary" href={`${base}foundation-7/`}>
-          Start with Foundation 7
+        <a class="button secondary" href={`${base}who-its-for/`}>
+          Find your role
         </a>
       </div>
     </div>
@@ -66,6 +70,16 @@ const pillars = [
       </p>
       <a href={`${base}how-it-works/`}>Understand the framework</a>
     </aside>
+  </section>
+  <section>
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">New here?</span>
+        <h2>Find your part in the program.</h2>
+      </div>
+      <a href={`${base}who-its-for/`}>Start with the role guides</a>
+    </div>
+    <AudienceCards />
   </section>
   <section id="foundation" class="theme-verse">
     <span class="eyebrow">Our foundation</span>

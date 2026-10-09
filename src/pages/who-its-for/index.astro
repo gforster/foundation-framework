@@ -1,0 +1,54 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import AudienceCards from "../../components/AudienceCards.astro";
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout
+  title="Who It's For"
+  description="Start here: a guide to Foundation Framework for teens, parents, church leaders, mentors, and skilled church members."
+>
+  <section class="page-intro">
+    <span class="eyebrow">Start here</span>
+    <h1>One program. Your part in it.</h1>
+    <p class="lead">
+      Teens do the learning. Parents, mentors, and church members help them
+      grow. The local church brings the people and process together.
+    </p>
+    <p>
+      Foundation Framework connects biblical discipleship with practical skills,
+      responsibility, and service. Its purpose is faithfulness in ordinary life,
+      built on Jesus Christ. Choose the guide that fits your role; you may have
+      more than one.
+    </p>
+  </section>
+  <section>
+    <h2>Find your perspective.</h2>
+    <AudienceCards />
+  </section>
+  <section class="two-column">
+    <div>
+      <h2>The same learning process.</h2>
+      <p>
+        A teen chooses a challenge, learns with appropriate help, practices, and
+        demonstrates what they have learned. A church-designated adult gives
+        feedback and confirms completion. The skill then becomes something to
+        use in serving others.
+      </p>
+      <a href={`${base}how-it-works/`}>See how the program works</a>
+    </div>
+    <div>
+      <h2>How to use the site today.</h2>
+      <p>
+        Anyone can read the challenges, adult guides, and printables. My
+        Workshop is the participant’s practice tracker; it saves only in the
+        current browser. There are no role-based accounts or adult approval
+        screens yet. Churches keep their own completion records.
+      </p>
+      <p>
+        The curriculum is sample content for church review. Foundation 7 offers
+        an optional starting path, never a prerequisite.
+      </p>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,60 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { audiences } from "../../data/audiences";
+export function getStaticPaths() {
+  return audiences.map((audience) => ({
+    params: { role: audience.slug },
+    props: { audience },
+  }));
+}
+const { audience } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title={`Guide for ${audience.title}`} description={audience.summary}>
+  <section class="page-intro">
+    <a href={`${base}who-its-for/`}>← All role guides</a>
+    <p class="eyebrow">A note to {audience.title.toLowerCase()}</p>
+    <h1>{audience.heading}</h1>
+    <p class="lead">{audience.summary}</p>
+    <p>{audience.purpose}</p>
+  </section>
+  <section class="role-purpose">
+    <h2>Your role.</h2>
+    <p>{audience.role}</p>
+  </section>
+  <section>
+    <h2>How it works from your perspective.</h2>
+    <ol class="role-steps">
+      {audience.steps.map(([title, text]) => (
+        <li>
+          <h3>{title}</h3>
+          <p>{text}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+  <section class="local-note">
+    <h2>What to know before you start.</h2>
+    <p>{audience.note}</p>
+    <p>
+      All challenges are sample curriculum for church review. Readiness in My
+      Workshop is separate from adult-approved completion.
+    </p>
+  </section>
+  <section>
+    <h2>Your first steps on this site.</h2>
+    <div class="actions">
+      {audience.actions.map(([label, path], i) => (
+        <a class={`button${i ? " secondary" : ""}`} href={`${base}${path}/`}>
+          {label}
+        </a>
+      ))}
+    </div>
+  </section>
+  <p>
+    <a href={`${base}who-its-for/`}>
+      Helping in another role? Read the other guides.
+    </a>
+  </p>
+</Layout>

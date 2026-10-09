@@ -1,0 +1,14 @@
+---
+import { audiences } from "../data/audiences";
+const base = import.meta.env.BASE_URL;
+---
+
+<div class="audience-grid">
+  {audiences.map((a) => (
+    <a class="audience-card" href={`${base}who-its-for/${a.slug}/`}>
+      <h3>{a.title}</h3>
+      <p>{a.summary}</p>
+      <span>Read your guide →</span>
+    </a>
+  ))}
+</div>
